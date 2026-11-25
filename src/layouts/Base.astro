@@ -29,14 +29,13 @@ const menus = [
 const links = [
   { href: '/apple-of-sodom/', label: 'Apple of Sodom' },
   { href: '/about/', label: 'Η AHAVA' },
-  { href: '/where-to-buy/', label: 'Σημεία πώλησης' },
-  { href: '/synergasia/', label: 'Για φαρμακεία' },
   { href: '/contact/', label: 'Επικοινωνία' },
 ];
 const ticker = [
-  `Επίσημη αντιπροσωπεία στην Κύπρο · ${c.company}`,
-  'Χωρίς parabens · Vegan · Δερματολογικά ελεγμένο για το ευαίσθητο δέρμα',
-  `Τα προϊόντα AHAVA διατίθενται σε ${site.locations.length} φαρμακεία σε όλη την Κύπρο`,
+  'Επίσημη αντιπροσωπεία AHAVA στην Κύπρο',
+  'Χωρίς parabens · Vegan',
+  'Δερματολογικά ελεγμένο για το ευαίσθητο δέρμα',
+  `Διαθέσιμα σε ${site.locations.length} φαρμακεία σε όλη την Κύπρο`,
 ];
 
 const org = {
@@ -117,27 +116,27 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
           <li class="has-mega">
             <button type="button" aria-expanded="false" aria-haspopup="true">{m.label}</button>
             <div class="mega">
-              <div class={`mega-in${m.f.length === 2 ? ' two' : ''}`}>
+              <div class={`mega-in cols-${m.f.length}`}>
                 {m.f.map((g) => (
                   <div>
                     <h3>{g.facet}</h3>
-                    <ul class:list={['mega-links', { cols: g.items.length > 12 }]}>
+                    <ul class:list={['mega-links', { cols: g.items.length > 10 }]}>
                       {g.items.map((it) => <li><a href={`/category/${it.slug}/`}>{it.name}</a></li>)}
                     </ul>
                   </div>
                 ))}
-                <div>
+                <div class="mega-side">
+                  <a class="mega-card" href={`/category/${m.key}/`}>
+                    <img src={m.img.src} srcset={m.img.srcset} sizes="280px" width={m.img.w} height={m.img.h} alt={m.imgLabel} loading="lazy" decoding="async">
+                  </a>
                   <h3>Ανακαλύψτε</h3>
                   <ul class="mega-links">
                     <li><a href={`/category/${m.key}/`}>{m.all}</a></li>
                     <li><a href="/products/">Όλα τα προϊόντα</a></li>
                     <li><a href="/where-to-buy/">Σημεία πώλησης</a></li>
+                    <li><a href="/synergasia/">Για φαρμακεία</a></li>
                   </ul>
                 </div>
-                <a class="mega-card" href={`/category/${m.key}/`}>
-                  <img class="pack" src={m.img.src} srcset={m.img.srcset} sizes="280px" width={m.img.w} height={m.img.h} alt={m.imgLabel} loading="lazy" decoding="async">
-                  <span>{m.all}</span>
-                </a>
               </div>
             </div>
           </li>
@@ -187,6 +186,8 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
         </details>
       ))}
       <a class="d-link" href="/products/">Όλα τα προϊόντα</a>
+      <a class="d-link" href="/where-to-buy/">Σημεία πώλησης</a>
+      <a class="d-link" href="/synergasia/">Για φαρμακεία</a>
       {links.map((l) => <a class="d-link" href={l.href}>{l.label}</a>)}
       <a class="d-small" href="/videos/">Videos</a>
       <a class="d-small" href="/privacy/">Πολιτική απορρήτου</a>
@@ -215,41 +216,46 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
   </div>
   <div class="wrap fgrid">
     <div>
-      <h2>{c.role_label}</h2>
-      {c.logo && <a href={c.web} rel="noopener noreferrer"><img class="msj" src={c.logo} width="220" height="45" alt={c.company_en} loading="lazy"></a>}
-      <p><strong>{c.company}</strong></p>
-      {c.member_of && <p>{c.member_of}</p>}
-      <p>{c.address}{c.po_box ? `, ${c.po_box}` : ''}</p>
-      <p>Τηλέφωνο: <a href={`tel:${c.tel}`}>{c.phone_display}</a></p>
-      {c.fax_display && <p>Φαξ: {c.fax_display}</p>}
-      <p>Email: <a href={`mailto:${c.email}`}>{c.email}</a></p>
-    </div>
-    <div>
-      <h2>Προϊόντα</h2>
+      <h2>Κατηγορίες</h2>
       <ul>
         <li><a href="/category/prosopo/">Φροντίδα Προσώπου</a></li>
         <li><a href="/category/soma/">Περιποίηση Σώματος</a></li>
         <li><a href="/category/for-him/">FOR HIM</a></li>
         <li><a href="/category/paketa-kits/">Πακέτα</a></li>
-        <li><a href="/apple-of-sodom/">Apple of Sodom</a></li>
         <li><a href="/products/">Όλα τα προϊόντα</a></li>
       </ul>
     </div>
     <div>
-      <h2>Η AHAVA</h2>
+      <h2>AHAVA</h2>
       <ul>
         <li><a href="/about/">Μάθε για την AHAVA</a></li>
+        <li><a href="/apple-of-sodom/">Apple of Sodom</a></li>
         <li><a href="/videos/">Videos</a></li>
-        <li><a href="/where-to-buy/">Σημεία πώλησης</a></li>
-        <li><a href="/synergasia/">Για φαρμακεία</a></li>
-        <li><a href="/contact/">Επικοινωνία</a></li>
       </ul>
     </div>
     <div>
-      <h2>Ακολουθήστε μας</h2>
+      <h2>Βοήθεια</h2>
+      <ul>
+        <li><a href="/where-to-buy/">Σημεία πώλησης</a></li>
+        <li><a href="/synergasia/">Για φαρμακεία</a></li>
+        <li><a href="/contact/">Επικοινωνία</a></li>
+        <li><a href="/privacy/">Πολιτική απορρήτου</a></li>
+      </ul>
       <SocialList links={site.socials} onDark />
-      <h2 style="margin-top:28px">Νομικά</h2>
-      <ul><li><a href="/privacy/">Πολιτική απορρήτου</a></li></ul>
+    </div>
+    <div>
+      <h2>Επικοινωνία</h2>
+      <p><strong>{c.company}</strong></p>
+      {c.member_of && <p>{c.member_of}</p>}
+      <p>{c.address}{c.po_box ? `, ${c.po_box}` : ''}</p>
+      <p><a href={`tel:${c.tel}`}>{c.phone_display}</a></p>
+      <p><a href={`mailto:${c.email}`}>{c.email}</a></p>
+      <form class="news" onsubmit="return false">
+        <p class="notice">Η φόρμα δεν είναι ακόμη ενεργή και δεν αποστέλλει μηνύματα.</p>
+        <label class="sr" for="news-email">Email</label>
+        <input class="field" id="news-email" type="email" placeholder="Email" disabled>
+        <button class="btn btn-light" type="submit" disabled>Εγγραφή</button>
+      </form>
     </div>
   </div>
   <div class="wrap fbar"><span>© {new Date().getFullYear()} AHAVA</span><span>{c.company}</span></div>
@@ -310,6 +316,16 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
   var dlg = document.getElementById('search-dialog');
   document.getElementById('search-open').addEventListener('click', function () { dlg.showModal(); dlg.querySelector('input').focus(); });
   dlg.querySelector('[data-close-search]').addEventListener('click', function () { dlg.close(); });
+
+  document.querySelectorAll('[data-carousel]').forEach(function (root) {
+    var rail = root.querySelector('.rail');
+    var prev = root.querySelector('.prev');
+    var next = root.querySelector('.next');
+    if (!rail || !prev || !next) return;
+    function step(dir) { rail.scrollBy({ left: dir * (rail.clientWidth * 0.8), behavior: 'smooth' }); }
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+  });
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {

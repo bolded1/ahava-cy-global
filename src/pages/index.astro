@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import ProductCard from '../components/ProductCard.astro';
-import PharmacyFinder from '../components/PharmacyFinder.astro';
 import SocialList from '../components/SocialList.astro';
 import site from '../data/site.json';
 import P from '../data/products.json';
@@ -11,149 +10,77 @@ import { catBySlug } from '../data/nav.js';
 const I = site.home_imgs;
 const bySlug = Object.fromEntries(P.products.map((p) => [p.slug, p]));
 const take = (slug, n = 8) => (catBySlug[slug]?.products || []).slice(0, n).map((s) => bySlug[s]).filter(Boolean);
-
-const tabs = [
-  { id: 'prosopo', label: 'Πρόσωπο', products: take('prosopo') },
-  { id: 'soma', label: 'Σώμα', products: take('soma') },
-  { id: 'apple-of-sodom', label: 'Apple of Sodom', products: take('apple-of-sodom') },
-  { id: 'for-him', label: 'FOR HIM', products: take('for-him') },
-  { id: 'paketa-kits', label: 'Πακέτα', products: take('paketa-kits') },
-];
-
 const concerns = Object.values(catBySlug).filter((c) => c.top === 'prosopo' && c.facet === 'Ανάγκη');
-const featuredSlugs = ['apple-of-sodom', 'pretinol', 'youth-boosters', 'halobacteria', 'diamond-glow', 'hyaluronic-acid', 'multivitamin', 'for-him'];
-const featured = featuredSlugs.map((s) => catBySlug[s]).filter(Boolean);
-const kits = take('paketa-kits', 6);
-const yb = take('youth-boosters', 4);
-
-function chapters(html) {
-  const out = [];
-  const re = /<h([23])>([\s\S]*?)<\/h\1>\s*<p>([\s\S]*?)<\/p>/gi;
-  let m;
-  while ((m = re.exec(html))) {
-    const title = m[2].replace(/<[^>]+>/g, '').trim();
-    const text = m[3].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-    if (title && text) out.push({ title, text });
-  }
-  return out;
-}
-const aboutChapters = chapters(site.pages.about);
-
-const slides = [
-  {
-    img: I.aosScene,
-    eyebrow: 'Πίσω από την AHAVA',
-    title: 'Στην AHAVA πάμε βαθύτερα και από την ομορφιά.',
-    text: 'Βασισμένη σε μια περιοχή πλούσια σε πόρους, αφήνουμε τη φύση να οδηγήσει την επιστήμη μας και να σχεδιάσει φόρμουλες που επικεντρώνονται στο να φέρουν την φύση κατ΄ευθείαν σε εσάς.',
-    primary: { href: '/products/', label: 'Δείτε τα προϊόντα' },
-    secondary: { href: '/where-to-buy/', label: 'Σημεία πώλησης' },
-  },
-  {
-    img: I.aosSalt,
-    eyebrow: 'Apple of Sodom',
-    title: 'Botox χωρίς βελόνες',
-    text: 'Πατενταρισμένη καινοτόμος βιοτεχνολογία για λείανση και γέμισμα των ρυτίδων.',
-    primary: { href: '/apple-of-sodom/', label: 'Η σειρά Apple of Sodom' },
-    secondary: { href: '/category/apple-of-sodom/', label: 'Δείτε τα προϊόντα' },
-  },
-  {
-    img: I.hero,
-    eyebrow: 'Η Νεκρά Θάλασσα',
-    title: 'Η αφετηρία μας',
-    text: 'Τοποθετημένη στο σύγχρονο Ισραήλ, η περιοχή της Νεκράς Θάλασσας είναι πλούσια σε πρώτες ύλες. Οι επιστήμονες προσπάθησαν να κατανοήσουν σε βάθος τον τρόπο με τον οποίο τα μεταλλικά στοιχεία και τα φυτικά συστατικά μπορούν να βοηθήσουν και να βελτιώσουν το δέρμα, ιδρύοντας την AHAVA το 1988.',
-    primary: { href: '/about/', label: 'Μάθε για την AHAVA' },
-    secondary: { href: '/products/', label: 'Δείτε τα προϊόντα' },
-  },
-];
-
+const picks = [...take('youth-boosters', 4), ...take('apple-of-sodom', 3), ...take('hyaluronic-acid', 3)];
+const seen = new Set();
+const carousel = picks.filter((p) => (seen.has(p.slug) ? false : seen.add(p.slug)));
+const shortcuts = [
+  { href: '/category/prosopo/', label: 'Πρόσωπο', img: I.face },
+  { href: '/category/soma/', label: 'Σώμα', img: I.body },
+  { href: '/category/apple-of-sodom/', label: 'Apple of Sodom', img: I.aos },
+  { href: '/category/for-him/', label: 'FOR HIM', img: bySlug[catBySlug['for-him']?.products[0]]?.images[0] },
+  { href: '/category/paketa-kits/', label: 'Πακέτα', img: bySlug[catBySlug['paketa-kits']?.products[0]]?.images[0] },
+].filter((s) => s.img);
 const values = [
   { icon: I.i1, title: 'Χωρίς parabens' },
   { icon: I.i2, title: 'Vegan (όπως ήταν πάντα η AHAVA)' },
   { icon: I.i3, title: 'Δερματολογικά ελεγμένο για το ευαίσθητο δέρμα.' },
 ];
-const c = site.contact;
 ---
 <Base title="AHAVA CY® – Dead Sea Mineral Skin Care Products" description="AHAVA στην Κύπρο: φόρμουλες που στηρίζονται σε φυσικά υλικά από τη Νεκρά Θάλασσα. Χωρίς parabens, vegan, δερματολογικά ελεγμένα. Βρείτε τα σε φαρμακεία." overlay image={I.aosScene.src}>
-  <section class="hero" aria-roledescription="carousel" aria-label="AHAVA">
-    {slides.map((s, i) => (
-      <article class:list={['hero-slide', { 'is-on': i === 0 }]} aria-hidden={i === 0 ? 'false' : 'true'}>
-        <Img img={s.img} eager={i === 0} sizes="100vw" alt={s.img.alt} />
-        <div class="hero-wash"></div>
-        <div class="hero-copy">
-          <p class="eyebrow">{s.eyebrow}</p>
-          {i === 0 ? <h1>{s.title}</h1> : <p class="hero-title">{s.title}</p>}
-          <p class="lead">{s.text}</p>
-          <div class="actions">
-            <a class="btn btn-light" href={s.primary.href}>{s.primary.label}</a>
-            <a class="btn btn-ghost" href={s.secondary.href}>{s.secondary.label}</a>
-          </div>
-        </div>
-      </article>
-    ))}
-    <div class="hero-ui">
-      <div class="hero-dots" role="tablist" aria-label="Διαφάνειες">
-        {slides.map((s, i) => <button type="button" role="tab" aria-label={s.eyebrow} aria-current={i === 0 ? 'true' : 'false'} data-slide={i}></button>)}
+  <section class="hero">
+    <article class="hero-slide is-on">
+      <Img img={I.aosScene} eager sizes="100vw" alt={I.aosScene.alt} />
+      <div class="hero-wash"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Πίσω από την AHAVA</p>
+        <h1>Στην AHAVA πάμε βαθύτερα και από την ομορφιά.</h1>
+        <p class="lead">Βασισμένη σε μια περιοχή πλούσια σε πόρους, αφήνουμε τη φύση να οδηγήσει την επιστήμη μας και να σχεδιάσει φόρμουλες που επικεντρώνονται στο να φέρουν την φύση κατ΄ευθείαν σε εσάς.</p>
+        <a class="btn btn-light" href="/products/">Δείτε τα προϊόντα</a>
       </div>
-      <button type="button" id="hero-prev" aria-label="Προηγούμενη">‹</button>
-      <button type="button" id="hero-next" aria-label="Επόμενη">›</button>
-      <button type="button" id="hero-pause" aria-pressed="false">Παύση</button>
-    </div>
+    </article>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="face-body">
     <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow">Κατάλογος</p>
-          <h2>Ανά κατηγορία</h2>
-        </div>
-        <a class="text-link" href="/products/">Όλα τα προϊόντα</a>
-      </div>
-      <div class="duo" id="face-body">
-        <a class="duo-card" href="/category/prosopo/">
-          <Img img={I.face} sizes="(max-width: 768px) 100vw, 50vw" alt={I.face.alt} />
-          <span class="duo-cap">
-            <span class="eyebrow">Φροντίδα Προσώπου</span>
-            <span class="duo-title">Πρόσωπο</span>
-            <span class="duo-rule"></span>
-            <span class="duo-more">Δείτε</span>
-          </span>
-        </a>
-        <a class="duo-card" href="/category/soma/">
-          <Img img={I.body} sizes="(max-width: 768px) 100vw, 50vw" alt={I.body.alt} />
-          <span class="duo-cap">
-            <span class="eyebrow">Περιποίηση Σώματος</span>
-            <span class="duo-title">Σώμα</span>
-            <span class="duo-rule"></span>
-            <span class="duo-more">Δείτε</span>
-          </span>
-        </a>
-      </div>
+      <ul class="shortcuts">
+        {shortcuts.map((s) => (
+          <li>
+            <a href={s.href}>
+              <img src={s.img.src} srcset={s.img.srcset} alt="" width="88" height="88" loading="lazy">
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="switch" data-switch>
-        <div class="switch-tabs" role="tablist" aria-label="Ομάδες προϊόντων">
-          {tabs.map((t, i) => (
-            <button type="button" role="tab" id={`tab-${t.id}`} aria-controls={`panel-${t.id}`} aria-selected={i === 0 ? 'true' : 'false'}>{t.label}</button>
-          ))}
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Σειρές</p>
+          <h2>Επιλογές</h2>
         </div>
-        {tabs.map((t, i) => (
-          <div class:list={['switch-panel', { 'is-on': i === 0 }]} role="tabpanel" id={`panel-${t.id}`} aria-labelledby={`tab-${t.id}`}>
-            <h3 class="switch-label">{t.label}</h3>
-            <ul class="rail">{t.products.map((p) => <ProductCard p={p} />)}</ul>
-          </div>
-        ))}
+        <a class="text-link" href="/products/">Όλα τα προϊόντα</a>
+      </div>
+      <div class="carousel" data-carousel>
+        <button class="car-btn prev" type="button" aria-label="Προηγούμενα">‹</button>
+        <ul class="rail">{carousel.map((p) => <ProductCard p={p} />)}</ul>
+        <button class="car-btn next" type="button" aria-label="Επόμενα">›</button>
       </div>
     </div>
   </section>
 
-  <section class="band-dark quote-band">
-    <div class="wrap">
-      <p>AHAVA – Η φυσική ομορφιά στον άνθρωπο!</p>
-      <a class="btn btn-light" href="/about/">Μάθε για την AHAVA</a>
+  <section class="split">
+    <div class="split-media"><Img img={I.sea} sizes="(max-width: 1024px) 100vw, 50vw" alt={I.sea.alt} /></div>
+    <div class="split-copy">
+      <p class="eyebrow">Η αφετηρία μας</p>
+      <h2>Η υπόσχεσή μας</h2>
+      <p>Φόρμουλες που στηρίζονται σε φυσικά υλικά. Συστατικά που έχουν χρησιμοποιηθεί για αιώνες. Και καινοτομία που τιμά την παράδοση. Χωρίς πρόσθετα, χωρίς περιττά, χωρίς απάτες.</p>
+      <p>Τοποθετημένη στο σύγχρονο Ισραήλ, η περιοχή της Νεκράς Θάλασσας είναι πλούσια σε πρώτες ύλες. Οι επιστήμονες προσπάθησαν να κατανοήσουν σε βάθος τον τρόπο με τον οποίο τα μεταλλικά στοιχεία και τα φυτικά συστατικά μπορούν να βοηθήσουν και να βελτιώσουν το δέρμα, ιδρύοντας την AHAVA το 1988.</p>
+      <a class="btn" href="/about/">Μάθε για την AHAVA</a>
     </div>
   </section>
 
@@ -167,83 +94,12 @@ const c = site.contact;
         <a class="text-link" href="/category/prosopo/">Όλη η φροντίδα προσώπου</a>
       </div>
       <ul class="concerns">
-        {concerns.map((c) => {
-          const img = bySlug[c.products[0]]?.images[0];
-          return (
-            <li>
-              <a class="concern" href={`/category/${c.slug}/`}>
-                {img && <img class="pack" src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 50vw, 25vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}
-                <strong>{c.name}</strong>
-                <small>{c.products.length} προϊόντα</small>
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  </section>
-
-  <section class="split band">
-    <div class="split-media"><Img img={I.sea} sizes="(max-width: 1024px) 100vw, 55vw" alt={I.sea.alt} /></div>
-    <div class="split-copy">
-      <p class="eyebrow">Η αφετηρία μας</p>
-      <h2>Η υπόσχεσή μας</h2>
-      <p class="lead">Φόρμουλες που στηρίζονται σε φυσικά υλικά. Συστατικά που έχουν χρησιμοποιηθεί για αιώνες. Και καινοτομία που τιμά την παράδοση. Χωρίς πρόσθετα, χωρίς περιττά, χωρίς απάτες.</p>
-      <p>Τοποθετημένη στο σύγχρονο Ισραήλ, η περιοχή της Νεκράς Θάλασσας είναι πλούσια σε πρώτες ύλες. Οι επιστήμονες προσπάθησαν να κατανοήσουν σε βάθος τον τρόπο με τον οποίο τα μεταλλικά στοιχεία και τα φυτικά συστατικά μπορούν να βοηθήσουν και να βελτιώσουν το δέρμα, ιδρύοντας την AHAVA το 1988.</p>
-      <div class="actions"><a class="btn" href="/about/">Μάθε για την AHAVA</a></div>
-    </div>
-  </section>
-
-  {yb.length > 0 && (
-    <section class="sec" style="padding-bottom:28px">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <p class="eyebrow">Youth Boosters</p>
-            <h2>Από τη σειρά Youth Boosters</h2>
-          </div>
-          <a class="text-link" href="/category/youth-boosters/">Όλη η σειρά</a>
-        </div>
-        <ul class="rail">{yb.map((p) => <ProductCard p={p} />)}</ul>
-      </div>
-    </section>
-  )}
-
-  <section class="sec band">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow">Η υπόσχεσή μας</p>
-          <h2>Τι δεν θα βρείτε στις φόρμουλες</h2>
-        </div>
-      </div>
-      <ul class="values">
-        {values.map((v) => (
-          <li>
-            <img src={v.icon.src} width={v.icon.w} height={v.icon.h} alt="">
-            <h3>{v.title}</h3>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <div class="sec-head">
-        <div>
-          <p class="eyebrow">Σειρές</p>
-          <h2>Ανακαλύψτε τις σειρές της AHAVA</h2>
-        </div>
-        <a class="text-link" href="/products/">Όλα τα προϊόντα</a>
-      </div>
-      <ul class="sigs">
-        {featured.map((cat) => {
+        {concerns.map((cat) => {
           const img = bySlug[cat.products[0]]?.images[0];
           return (
             <li>
-              <a class="sig" href={`/category/${cat.slug}/`}>
-                {img && <img class="pack" src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 50vw, 25vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}
+              <a class="concern" href={`/category/${cat.slug}/`}>
+                {img && <img class="pack" src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 46vw, 22vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}
                 <strong>{cat.name}</strong>
                 <small>{cat.products.length} προϊόντα</small>
               </a>
@@ -254,70 +110,23 @@ const c = site.contact;
     </div>
   </section>
 
-  {aboutChapters.length > 0 && (
-    <section class="sec" style="padding-top:0">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <p class="eyebrow">Πίσω από την AHAVA</p>
-            <h2>Βαθύτερα και από την ομορφιά</h2>
-          </div>
-        </div>
-        <div class="flow">
-          <div class="flow-visual"><Img img={I.aosPlant} sizes="(max-width: 1024px) 100vw, 50vw" alt={I.aosPlant.alt} /></div>
-          <div>
-            {aboutChapters.map((ch) => (
-              <article class="chapter">
-                <h3>{ch.title}</h3>
-                <p>{ch.text}</p>
-                <a class="text-link" href="/about/">Μάθε για την AHAVA</a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
-
-  {kits.length > 0 && (
-    <section class="sec">
-      <div class="wrap">
-        <div class="sec-head">
-          <div>
-            <p class="eyebrow">Πακέτα</p>
-            <h2>Πακέτα και kits</h2>
-          </div>
-          <a class="text-link" href="/category/paketa-kits/">Όλα τα πακέτα</a>
-        </div>
-        <ul class="collage">{kits.map((p) => <ProductCard p={p} />)}</ul>
-      </div>
-    </section>
-  )}
-
-  <section class="sec">
+  <section class="sec band">
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <p class="eyebrow">AHAVA</p>
-          <h2>Videos</h2>
+          <p class="eyebrow">Νεκρά Θάλασσα</p>
+          <h2>Τι δεν θα βρείτε στις φόρμουλες</h2>
         </div>
-        <a class="text-link" href="/videos/">Όλα τα videos</a>
       </div>
-      <div class="videos">
-        {site.videos.map((v) => (
-          <figure>
-            <button class="lite-yt" type="button" data-id={v.id} data-title={v.iframe_title} aria-label={`Αναπαραγωγή: ${v.iframe_title}`} style={`background-image:url(https://i.ytimg.com/vi/${v.id}/hqdefault.jpg)`}>
-              <span class="play" aria-hidden="true"></span>
-            </button>
-            <figcaption>{v.iframe_title}</figcaption>
-          </figure>
+      <ul class="values">
+        {values.map((v) => (
+          <li>
+            <img src={v.icon.src} width="48" height="48" alt="">
+            <h3>{v.title}</h3>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
-  </section>
-
-  <section class="sec band">
-    <div class="wrap"><PharmacyFinder /></div>
   </section>
 
   <section class="band-dark">
@@ -326,8 +135,8 @@ const c = site.contact;
       <h2>Γνώρισε την AHAVA στο πελατολόγιο του φαρμακείου σου</h2>
       <div class="prose" set:html={site.pages.retailers_intro} />
       <div class="actions">
-        <a class="btn btn-light" href="/synergasia/">Φόρμα συνεργασίας</a>
-        <a class="btn btn-ghost" href={`tel:${c.tel}`}>{c.phone_display}</a>
+        <a class="btn btn-light" href="/synergasia/">Για φαρμακεία</a>
+        <a class="btn btn-ghost" href="/where-to-buy/">Σημεία πώλησης</a>
       </div>
     </div>
   </section>
@@ -338,72 +147,11 @@ const c = site.contact;
         <div>
           <p class="eyebrow">AHAVA</p>
           <h2>Ακολουθήστε μας</h2>
-          <p class="lead" style="margin-top:18px">Facebook, Instagram και TikTok.</p>
+          <p class="lead" style="margin-top:12px">Facebook, Instagram και TikTok.</p>
         </div>
       </div>
-      <SocialList
-        links={site.socials}
-        variant="cards"
-        images={[I.aosScene, I.aosSalt, I.mud]}
-        mosaic={[I.sea, I.aosPlant, I.hero, I.story, I.texture, I.youth]}
-      />
+      <SocialList links={site.socials} variant="cards" images={[I.aosScene, I.aosSalt, I.mud]} />
     </div>
   </section>
 
-  <script is:inline>
-  (function () {
-    var slides = [].slice.call(document.querySelectorAll('.hero-slide'));
-    var dots = [].slice.call(document.querySelectorAll('.hero-dots button'));
-    var i = 0;
-    var timer;
-    var paused = false;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function show(n) {
-      i = (n + slides.length) % slides.length;
-      slides.forEach(function (s, j) {
-        var on = j === i;
-        s.classList.toggle('is-on', on);
-        s.setAttribute('aria-hidden', on ? 'false' : 'true');
-      });
-      dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
-    }
-    function play() {
-      if (reduce || paused) return;
-      clearInterval(timer);
-      timer = setInterval(function () { show(i + 1); }, 6500);
-    }
-    dots.forEach(function (d) { d.addEventListener('click', function () { show(+d.dataset.slide); play(); }); });
-    document.getElementById('hero-next').addEventListener('click', function () { show(i + 1); play(); });
-    document.getElementById('hero-prev').addEventListener('click', function () { show(i - 1); play(); });
-    document.getElementById('hero-pause').addEventListener('click', function (e) {
-      paused = !paused;
-      e.currentTarget.setAttribute('aria-pressed', String(paused));
-      e.currentTarget.textContent = paused ? 'Αναπαραγωγή' : 'Παύση';
-      if (paused) clearInterval(timer);
-      else play();
-    });
-    play();
-
-    document.querySelectorAll('[data-switch]').forEach(function (root) {
-      var tabs = [].slice.call(root.querySelectorAll('[role="tab"]'));
-      var panels = [].slice.call(root.querySelectorAll('[role="tabpanel"]'));
-      function activate(idx) {
-        tabs.forEach(function (t, j) { t.setAttribute('aria-selected', j === idx ? 'true' : 'false'); });
-        panels.forEach(function (p, j) { p.classList.toggle('is-on', j === idx); });
-      }
-      tabs.forEach(function (t, idx) { t.addEventListener('click', function () { activate(idx); }); });
-    });
-
-    document.addEventListener('click', function (e) {
-      var b = e.target.closest('.lite-yt');
-      if (!b || b.querySelector('iframe')) return;
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
-      f.title = b.dataset.title;
-      f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-      f.allowFullscreen = true;
-      b.appendChild(f);
-    });
-  })();
-  </script>
 </Base>

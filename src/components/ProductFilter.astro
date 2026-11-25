@@ -20,6 +20,8 @@ const groups = [['prosopo', 'Πρόσωπο'], ['soma', 'Σώμα']].filter(([t]
       <optgroup label={`${g.n} · ${f.facet}`}>{f.items.map((c) => <option value={c.id}>{c.name}</option>)}</optgroup>
     )))}
   </select>
+  <label class="sr" for="pf-sort">Σειρά</label>
+  <select class="field" id="pf-sort"><option value="az">Α–Ω</option><option value="za">Ω–Α</option></select>
   <p class="count" id="pf-count" aria-live="polite"></p>
 </form>
 </div></div>
@@ -29,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var t = document.getElementById('pf-top');
   var c = document.getElementById('pf-cat');
   var n = document.getElementById('pf-count');
+  var sort = document.getElementById('pf-sort');
+  var grid = document.querySelector('.grid');
   if (!q) return;
   var cards = [].slice.call(document.querySelectorAll('.pcard'));
   function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
@@ -48,8 +52,16 @@ document.addEventListener('DOMContentLoaded', function () {
       if (ok) k++;
     });
     n.textContent = k + (k === 1 ? ' προϊόν' : ' προϊόντα');
+    if (grid && sort) {
+      var vis = cards.filter(function (el) { return !el.hidden; });
+      vis.sort(function (a, b) {
+        var d = (a.dataset.name || '').localeCompare(b.dataset.name || '', 'el');
+        return sort.value === 'za' ? -d : d;
+      });
+      vis.forEach(function (el) { grid.appendChild(el); });
+    }
   }
-  [q, t, c].forEach(function (e) { if (e) e.addEventListener('input', run); });
+  [q, t, c, sort].forEach(function (e) { if (e) e.addEventListener('input', run); });
   run();
 });
 </script>

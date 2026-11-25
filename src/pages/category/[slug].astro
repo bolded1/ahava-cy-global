@@ -27,8 +27,8 @@ const image = products[0]?.images[0]?.src;
     <h1 class="h-catalog">{h1}</h1>
     <p class="lead">{products.length} προϊόντα, διαθέσιμα σε φαρμακεία σε όλη την Κύπρο.</p>
   </div>
-  <FacetNav current={c.slug} tops={[c.top]} open={isTop} />
-  {isTop ? <ProductFilter showTop={false} top={c.top} /> : <div style="height:28px"></div>}
+  <FacetNav current={c.slug} tops={[c.top]} open={false} />
+  <ProductFilter showTop={false} top={c.top} />
   <div class="wrap" style="padding-bottom:48px">
     <ul class="grid">{products.map((p) => <ProductCard p={p} />)}</ul>
     {!isTop && top && <p style="margin-top:40px"><a class="text-link" href={`/category/${top.slug}/`}>Όλα τα προϊόντα · {topName}</a></p>}
