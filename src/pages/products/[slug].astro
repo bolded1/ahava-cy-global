@@ -1,0 +1,200 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import P from '../../data/products.json';
+import { catById } from '../../data/nav.js';
+
+export function getStaticPaths() {
+  return P.products.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const cats = p.cats.map((id) => catById[id]).filter(Boolean);
+const facetCats = cats.filter((c) => c.facet);
+const topCat = cats.find((c) => !c.facet) || Object.values(catById).find((c) => !c.facet && c.top === p.tops[0]);
+const series = facetCats.find((c) => c.facet === 'Σειρά');
+const relCat = series || facetCats.find((c) => c.facet === 'Κατηγορία') || facetCats[0];
+let related = relCat ? P.products.filter((o) => o.slug !== p.slug && o.cats.includes(relCat.id)) : [];
+if (related.length < 4) {
+  const k = facetCats.find((c) => c.facet === 'Κατηγορία' && c !== relCat);
+  if (k) related = [...related, ...P.products.filter((o) => o.slug !== p.slug && o.cats.includes(k.id) && !related.includes(o))];
+}
+related = related.slice(0, 8);
+const crumbs = [{ name: 'Προϊόντα', href: '/products/' }];
+if (topCat) crumbs.push({ name: topCat.name, href: `/category/${topCat.slug}/` });
+if (series) crumbs.push({ name: series.name, href: `/category/${series.slug}/` });
+crumbs.push({ name: p.name, href: `/products/${p.slug}/` });
+
+function kindOf(label) {
+  const l = (label || '').toLowerCase();
+  if (/χρήσ|usage|how to/.test(l)) return 'use';
+  if (/συστατ|ingredient/.test(l)) return 'ing';
+  if (/οφέλ|πλεονεκτ|χαρακτηριστ|benefit/.test(l)) return 'benefit';
+  return 'other';
+}
+function extractInline(html) {
+  const chunks = [];
+  const re = /<p>\s*<strong>([^<]+)<\/strong>\s*:?\s*([\s\S]*?)<\/p>/gi;
+  const kept = [];
+  let last = 0;
+  let m;
+  while ((m = re.exec(html))) {
+    const k = kindOf(m[1]);
+    if (k === 'other') continue;
+    kept.push(html.slice(last, m.index));
+    const body = (m[2] || '').trim();
+    if (body) chunks.push({ kind: k, html: body.startsWith('<') ? body : `<p>${body}</p>` });
+    last = m.index + m[0].length;
+  }
+  kept.push(html.slice(last));
+  return { rest: kept.join(''), chunks };
+}
+function blocksOf(html) {
+  const src = html || '';
+  const re = /<p>\s*<strong>([^<]+)<\/strong>\s*<\/p>/gi;
+  const marks = [];
+  let m;
+  while ((m = re.exec(src))) marks.push({ label: m[1].trim(), index: m.index, end: re.lastIndex });
+  const spans = [{ label: null, html: src.slice(0, marks[0]?.index ?? src.length) }];
+  for (let i = 0; i < marks.length; i++) {
+    spans.push({ label: marks[i].label, html: src.slice(marks[i].end, marks[i + 1]?.index ?? src.length) });
+  }
+  const out = [];
+  for (const span of spans) {
+    const { rest, chunks } = extractInline(span.html);
+    out.push(...chunks);
+    const body = rest.trim();
+    if (!body) continue;
+    out.push({ kind: span.label ? kindOf(span.label) : 'desc', html: body });
+  }
+  return out;
+}
+const blocks = blocksOf(p.desc_html);
+const benefitHtml = blocks.filter((b) => b.kind === 'benefit').map((b) => b.html).join('');
+const usageHtml = blocks.filter((b) => b.kind === 'use').map((b) => b.html).join('');
+const ingHtml = blocks.filter((b) => b.kind === 'ing').map((b) => b.html).join('');
+const extra = blocks.filter((b) => b.kind === 'desc' || b.kind === 'other').map((b) => b.html).join('');
+const descHtml = extra.trim() || p.short_html || '';
+const bullets = [...benefitHtml.matchAll(/<li>([\s\S]*?)<\/li>/gi)].map((m) => m[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()).filter(Boolean).slice(0, 5);
+const usage = usageHtml.trim() ? { html: usageHtml } : null;
+const ing = ingHtml.trim() ? { html: ingHtml } : null;
+const plain = (html) => (html || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+const description = plain(p.summary) || plain(p.short_html) || p.meta;
+const productLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: p.name,
+  sku: p.sku,
+  image: p.images.map((im) => new URL(im.src, Astro.site).href),
+  description,
+  brand: { '@type': 'Brand', name: 'AHAVA' },
+  category: series?.name || topCat?.name,
+};
+---
+<Base title={p.name} description={p.meta} image={p.images[0]?.src} crumbs={crumbs} jsonld={[productLd]}>
+  <article class="wrap pdp">
+    <div>
+      <div class="gal-main" id="gal" tabindex="0" aria-label={`Φωτογραφίες: ${p.name}`}>
+        {p.images.map((im, i) => (
+          <figure>
+            <img src={im.src} srcset={im.srcset} sizes="(max-width: 1024px) 100vw, 520px" width={im.w} height={im.h} alt={p.images.length > 1 ? `${p.name} – φωτογραφία ${i + 1}` : p.name} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async">
+          </figure>
+        ))}
+      </div>
+      {p.images.length > 1 && <div class="dots" aria-hidden="true">{p.images.map((_, i) => <span class={i === 0 ? 'on' : ''}></span>)}</div>}
+      {p.images.length > 1 && (
+        <ul class="thumbs">
+          {p.images.map((im, i) => (
+            <li><button type="button" data-i={i} aria-current={i === 0 ? 'true' : 'false'} aria-label={`Φωτογραφία ${i + 1}`}><img src={im.src} srcset={im.srcset} sizes="72px" width={im.w} height={im.h} alt="" loading="lazy"></button></li>
+          ))}
+        </ul>
+      )}
+    </div>
+    <div class="pinfo">
+      {series ? <a class="eyebrow" href={`/category/${series.slug}/`} style="text-decoration:none">{series.name}</a> : topCat && <p class="eyebrow">{topCat.name}</p>}
+      <h1 class="h-catalog">{p.name}</h1>
+      {(p.size || p.sku) && (
+        <dl class="facts">
+          {p.size && <div><dt>Μέγεθος</dt><dd>{p.size}</dd></div>}
+          {p.sku && <div><dt>Κωδικός</dt><dd>{p.sku}</dd></div>}
+        </dl>
+      )}
+      {bullets.length > 0 && <ul class="benefits">{bullets.map((b) => <li>{b}</li>)}</ul>}
+      <div class="buy" id="buy">
+        <h2>Πού να το βρείτε</h2>
+        <p>Ζητήστε το από το φαρμακοποιό σας ή βρείτε το φαρμακείο AHAVA που είναι πιο κοντά σας.</p>
+        <div class="actions">
+          <a class="btn" href="/where-to-buy/">Βρείτε το σε φαρμακείο</a>
+          <a class="btn btn-line" href="/contact/">Επικοινωνία</a>
+        </div>
+      </div>
+      <div class="acc">
+        {descHtml.trim() && <details><summary>Περιγραφή</summary><div class="prose" set:html={descHtml} /></details>}
+        {usage && <details><summary>Οδηγίες χρήσης</summary><div class="prose" set:html={usage.html} /></details>}
+        {ing && <details><summary>Συστατικά</summary><div class="prose" set:html={ing.html} /></details>}
+      </div>
+      {facetCats.length > 0 && (
+        <p class="pcats">Κατηγορίες: {facetCats.map((cat, i) => <>{i > 0 && ' · '}<a href={`/category/${cat.slug}/`}>{cat.full_name || cat.name}</a></>)}</p>
+      )}
+    </div>
+  </article>
+  {related.length > 0 && relCat && (
+    <section class="sec">
+      <div class="wrap">
+        <div class="sec-head">
+          <div>
+            <p class="eyebrow">{relCat.name}</p>
+            <h2>Μπορεί επίσης να σας αρέσει</h2>
+          </div>
+          <a class="text-link" href={`/category/${relCat.slug}/`}>{relCat.facet === 'Σειρά' ? 'Όλη η σειρά' : 'Όλη η κατηγορία'}</a>
+        </div>
+        <div class="carousel" data-carousel>
+          <button class="car-btn prev" type="button" aria-label="Προηγούμενα">‹</button>
+          <ul class="rail">{related.map((o) => <ProductCard p={o} />)}</ul>
+          <button class="car-btn next" type="button" aria-label="Επόμενα">›</button>
+        </div>
+      </div>
+    </section>
+  )}
+  <div class="pdp-bar" id="pdp-bar">
+    <div class="pdp-bar-in">
+      <p>{p.name}{p.size ? ` · ${p.size}` : ''}</p>
+      <a class="btn btn-sm" href="/where-to-buy/">Σημεία πώλησης</a>
+    </div>
+  </div>
+  <script is:inline>
+  (function () {
+    var g = document.getElementById('gal');
+    if (g) {
+      var th = [].slice.call(document.querySelectorAll('.thumbs button'));
+      var ds = [].slice.call(document.querySelectorAll('.dots span'));
+      function mark(i) {
+        th.forEach(function (b, j) { b.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+        ds.forEach(function (d, j) { d.classList.toggle('on', j === i); });
+      }
+      th.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var i = +b.dataset.i;
+          g.scrollTo({ left: g.clientWidth * i, behavior: 'smooth' });
+          mark(i);
+        });
+      });
+      var t;
+      g.addEventListener('scroll', function () {
+        clearTimeout(t);
+        t = setTimeout(function () { mark(Math.round(g.scrollLeft / g.clientWidth)); }, 80);
+      }, { passive: true });
+    }
+    var buy = document.getElementById('buy');
+    var bar = document.getElementById('pdp-bar');
+    var foot = document.querySelector('.site-footer');
+    function tick() {
+      if (!buy || !bar) return;
+      var past = buy.getBoundingClientRect().bottom < 0;
+      var footTop = foot ? foot.getBoundingClientRect().top : 9999;
+      bar.classList.toggle('is-on', past && footTop > window.innerHeight - 40);
+    }
+    addEventListener('scroll', tick, { passive: true });
+    tick();
+  })();
+  </script>
+</Base>

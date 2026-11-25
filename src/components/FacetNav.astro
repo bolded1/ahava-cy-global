@@ -1,0 +1,27 @@
+---
+import { facetsFor } from '../data/nav.js';
+const { current = null, tops = ['prosopo', 'soma'], open = false } = Astro.props;
+const names = { prosopo: 'Φροντίδα Προσώπου', soma: 'Περιποίηση Σώματος' };
+---
+<div class="facet-nav wrap">
+  {tops.map((t) => (
+    <details open={open}>
+      <summary>Κατηγορίες · {names[t]}</summary>
+      <div>
+        <ul class="cat-tabs">
+          <li><a href={`/category/${t}/`} aria-current={current === t ? 'page' : undefined}>Όλα · {names[t]}</a></li>
+        </ul>
+        {facetsFor(t).map((f) => (
+          <>
+            <h3>{f.facet}</h3>
+            <ul class="cat-tabs">
+              {f.items.map((c) => (
+                <li><a href={`/category/${c.slug}/`} aria-current={current === c.slug ? 'page' : undefined}>{c.name} <small>{c.products.length}</small></a></li>
+              ))}
+            </ul>
+          </>
+        ))}
+      </div>
+    </details>
+  ))}
+</div>

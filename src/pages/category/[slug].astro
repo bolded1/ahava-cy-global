@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import ProductFilter from '../../components/ProductFilter.astro';
+import FacetNav from '../../components/FacetNav.astro';
+import C from '../../data/categories.json';
+import P from '../../data/products.json';
+
+export function getStaticPaths() {
+  return C.categories.map((c) => ({ params: { slug: c.slug }, props: { c } }));
+}
+const { c } = Astro.props;
+const bySlug = Object.fromEntries(P.products.map((p) => [p.slug, p]));
+const products = c.products.map((s) => bySlug[s]).filter(Boolean).sort((a, b) => a.name.localeCompare(b.name, 'el'));
+const isTop = c.facet === null;
+const top = C.categories.find((x) => x.facet === null && x.top === c.top);
+const topName = c.top === 'prosopo' ? 'Φροντίδα Προσώπου' : 'Περιποίηση Σώματος';
+const crumbs = [{ name: 'Προϊόντα', href: '/products/' }];
+if (!isTop && top) crumbs.push({ name: top.name, href: `/category/${top.slug}/` });
+crumbs.push({ name: c.name, href: `/category/${c.slug}/` });
+const h1 = isTop ? topName : c.name;
+const image = products[0]?.images[0]?.src;
+---
+<Base title={isTop ? h1 : (c.full_name || c.name) + (c.facet === 'Σειρά' ? ' – σειρά AHAVA' : '')} description={c.meta} image={image} crumbs={crumbs}>
+  <div class="wrap phead center">
+    <p class="eyebrow">{isTop ? 'Κατάλογος' : `${topName} · ${c.facet}`}</p>
+    <h1 class="h-catalog">{h1}</h1>
+    <p class="lead">{products.length} προϊόντα, διαθέσιμα σε φαρμακεία σε όλη την Κύπρο.</p>
+  </div>
+  <FacetNav current={c.slug} tops={[c.top]} open={false} />
+  <ProductFilter showTop={false} top={c.top} />
+  <div class="wrap" style="padding-bottom:48px">
+    <ul class="grid">{products.map((p) => <ProductCard p={p} />)}</ul>
+    {!isTop && top && <p style="margin-top:40px"><a class="text-link" href={`/category/${top.slug}/`}>Όλα τα προϊόντα · {topName}</a></p>}
+  </div>
+  <section class="band-dark">
+    <div class="wrap sec" style="padding-block:48px">
+      <p class="eyebrow">Σημεία πώλησης</p>
+      <h2>Βρείτε τα σε φαρμακείο</h2>
+      <div class="actions">
+        <a class="btn btn-light" href="/where-to-buy/">Σημεία πώλησης</a>
+        <a class="btn btn-ghost" href="/contact/">Επικοινωνία</a>
+      </div>
+    </div>
+  </section>
+</Base>

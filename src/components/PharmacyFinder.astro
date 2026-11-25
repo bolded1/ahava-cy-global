@@ -1,0 +1,21 @@
+---
+import site from '../data/site.json';
+const districts = [...new Set(site.locations.map((l) => l.district))].sort((a, b) => a.localeCompare(b, 'el'));
+---
+<div class="finder">
+  <div>
+    <p class="eyebrow">Σημεία πώλησης</p>
+    <h2>Βρείτε φαρμακείο κοντά σας</h2>
+    <p class="lead">Τα προϊόντα AHAVA διατίθενται σε {site.locations.length} φαρμακεία σε όλη την Κύπρο.</p>
+  </div>
+  <form action="/where-to-buy/" method="get">
+    <label class="sr" for="ff-d">Πόλη</label>
+    <select class="field" id="ff-d" name="town">
+      <option value="">Όλες οι πόλεις</option>
+      {districts.map((d) => <option value={d}>{d}</option>)}
+    </select>
+    <label class="sr" for="ff-q">Περιοχή ή όνομα φαρμακείου</label>
+    <input class="field" id="ff-q" name="q" type="search" placeholder="Περιοχή ή φαρμακείο">
+    <button class="btn" type="submit">Αναζήτηση</button>
+  </form>
+</div>

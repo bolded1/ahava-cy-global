@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Crumbs from '../components/Crumbs.astro';
+import site from '../data/site.json';
+const I = site.home_imgs;
+const c = site.contact;
+const why = [
+  ['Φυσικά συστατικά, εγγυημένα αποτελέσματα', 'Κάθε προϊόν AHAVA προέρχεται από τη φύση, διασφαλίζοντας έτσι ότι οι πελάτες σας απολαμβάνουν ασφαλείς και αποτελεσματικές λύσεις περιποίησης της επιδερμίδας.'],
+  ['Παγκόσμια Επωνυμία', 'Η πιστή βάση πελατών της AHAVA διευρύνεται διαρκώς. Η AHAVA έχει εδραιώσει τη θέση της στον κόσμο της πολυτελούς περιποίησης του δέρματος. Προσθέτοντας την AHAVA στο φαρμακείο σας προσελκύετε αυτόματα πελάτες που την γνωρίζουν και την αγαπούν.'],
+  ['Στήριξη & Προωθητικές Ενέργειες', 'Όταν συνεργάζεστε με την AHAVA, δεν προσθέτετε απλώς προϊόντα στο φαρμακείο σας αλλά γίνεστε μέρος μιας παγκόσμιας κοινότητας που βρίσκεται δίπλα σας ενεργά με εποχιακές δράσεις και προωθητικές καμπάνιες για το φαρμακείο σας.'],
+];
+const science = [
+  ['Όλα τα προϊόντα είναι ', 'χωρίς Parabens, Phthalates, Mineral oils, Alcohol, Petroleum, σκληρά συνθετικά συστατικά, GMOs'],
+  ['Όλα τα προϊόντα καθαρισμού είναι ', 'χωρίς SLS/SLES'],
+  ['Όλα τα προϊόντα είναι ελεγμένα για ', 'αλλεργίες και εγκεκριμένα για ευαίσθητα δέρματα'],
+  ['Όλες οι συσκευασίες είναι ', 'ανακυκλώσιμες'],
+  ['Δεκάδες ', 'μοναδικές πατέντες'],
+  ['Η AHAVA χρησιμοποιεί ', 'φυσικές πρώτες ύλες, πιστοποιημένες από τον Ecocert®,', ' όπως: νερό, λάσπη, και άλατα'],
+];
+const ranges = [
+  { name: 'Φροντίδα Προσώπου', href: '/category/prosopo/', img: I.face },
+  { name: 'Περιποίηση Σώματος', href: '/category/soma/', img: I.body },
+  { name: 'Δερματικές Παθήσεις', href: '/category/enydatosi-somatos/', img: I.dermud },
+];
+const fields = [
+  { id: 'name', label: 'Ονοματεπώνυμο', type: 'text', ac: 'name', full: true },
+  { id: 'phone', label: 'Κινητό / Σταθερό', type: 'tel', ac: 'tel', full: false },
+  { id: 'email', label: 'Email', type: 'email', ac: 'email', full: false },
+  { id: 'pharmacy', label: 'Επωνυμία Φαρμακείου', type: 'text', ac: 'organization', full: true },
+  { id: 'area', label: 'Περιοχή', type: 'text', ac: 'address-level2', full: true },
+];
+---
+<Base title="Φόρμα συνεργασίας για φαρμακεία" description="Ανακάλυψε την Μαγεία της Νεκράς Θάλασσας & Γνώρισε την AHAVA στο Πελατολόγιο του Φαρμακείου σου. Φόρμα ενδιαφέροντος για φαρμακεία στην Κύπρο." crumbs={[{ name: 'Για φαρμακεία', href: '/synergasia/' }]} overlay image={I.sea.src}>
+  <section class="hero">
+    <article class="hero-slide is-on">
+      <Img img={I.sea} eager sizes="100vw" alt={I.sea.alt} />
+      <div class="hero-wash"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Για φαρμακεία</p>
+        <h1>Ανακάλυψε την Μαγεία της Νεκράς Θάλασσας</h1>
+        <div class="lead" set:html={site.pages.retailers_intro} />
+        <div class="actions">
+          <a class="btn btn-light" href="#forma">Φόρμα Ενδιαφέροντος</a>
+          <a class="btn btn-ghost" href={`tel:${c.tel}`}>{c.phone_display}</a>
+        </div>
+      </div>
+    </article>
+  </section>
+  <Crumbs crumbs={[{ name: 'Για φαρμακεία', href: '/synergasia/' }]} />
+
+  <section class="wrap sec">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Για το φαρμακείο σας</p>
+        <h2>Γιατί να Επιλέξεις την AHAVA</h2>
+      </div>
+    </div>
+    <ol class="ph-why">
+      {why.map(([h, t], i) => (
+        <li>
+          <span class="ph-num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{h}</h3>
+          <p>{t}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="split band">
+    <div class="split-media"><Img img={I.heroYB} sizes="(max-width: 1024px) 100vw, 50vw" alt={I.heroYB.alt} /></div>
+    <div class="split-copy">
+      <p class="eyebrow">Γνώρισε την AHAVA</p>
+      <h2>Η Επιστημονική Υπεροχή της AHAVA</h2>
+      <p>Η βασική αρχή της AHAVA είναι να δημιουργεί προϊόντα περιποίησης, που εμπνέουν από την αρμονική συνύπαρξη – τιμώντας τη σχέση <strong>μεταξύ της φύσης και του ανθρώπου</strong>. Οι έρευνες της AHAVA διαρκώς αναπτύσσουν <strong>πρωτοποριακά συστατικά</strong> για αποκλειστική χρήση σε προϊόντα περιποίησής της. <strong>Από το 1988 είναι ο παγκόσμιος leader των καλλυντικών της Νεκράς Θάλασσας</strong> και η μόνη εταιρεία καλλυντικών που έχει τη βάση της και ιδιόκτητες μονάδες παραγωγής στις ακτές της.</p>
+      <ul class="ph-list">{science.map(([a, b, d]) => <li>{a}<strong>{b}</strong>{d || ''}</li>)}</ul>
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Κατάλογος</p>
+        <h2>Σειρά Προϊόντων AHAVA</h2>
+      </div>
+      <a class="text-link" href="/products/">Όλα τα προϊόντα</a>
+    </div>
+    <ul class="ph-ranges">
+      {ranges.map((r) => (
+        <li>
+          <a href={r.href}>
+            <Img class="pack" img={r.img} alt={`AHAVA ${r.name}`} sizes="(max-width: 768px) 100vw, 30vw" />
+            <h3>{r.name}</h3>
+            <span class="text-link">Δείτε τα προϊόντα</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap ph-two">
+      <div>
+        <p class="eyebrow">Osmoter™</p>
+        <h2>Η Διαφορά της AHAVA</h2>
+        <p>Η μελέτη μας για την φύση, το δέρμα και τους ανθρώπους μας οδήγησε στην ανάπτυξη του <strong>AHAVA’s Osmoter™</strong>, του ορυκτού καταλύτη της AHAVA, που έχει εφαρμογή σε κάθε φόρμουλα της AHAVA. Αξιοποιώντας τα πιο δυναμικά στοιχεία της Νεκράς Θάλασσας, αυτό το επιστημονικά ισορροπημένο μείγμα ορυκτών προσφέρει εξαιρετική ενυδάτωση στο δέρμα. Το Osmoter™ της AHAVA αντλεί υγρασία και θρεπτικά συστατικά από τα βάθη του δέρματος στα εξωτερικά του στρώματα, όπου το χρειάζεται και περισσότερο. Αυτό είναι το πώς τα προϊόντα AHAVA ενεργοποιούν το δέρμα σας από μέσα.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Νεκρά Θάλασσα</p>
+        <h2>Η Προστασία του Περιβάλλοντος Είναι Βασικός Σκοπός μας</h2>
+        <p>Είμαστε βαθιά αφοσιωμένοι <strong>στη διατήρηση του ευαίσθητου οικοσυστήματος της Νεκράς Θάλασσας.</strong> Η οικολογική μας συσκευασία και οι πρώτες ύλες μας διασφαλίζουν ότι επιστρέφουμε περισσότερα από όσα παίρνουμε πίσω στο περιβάλλον.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="forma">
+    <div class="ph-form-grid">
+      <div>
+        <p class="eyebrow">Φόρμα Ενδιαφέροντος</p>
+        <h2>Γνώρισε την AHAVA στο Πελατολόγιο του Φαρμακείου σου</h2>
+        <ol class="ph-steps">
+          <li><span class="ph-num">01</span>Συμπληρώστε τα στοιχεία σας</li>
+          <li><span class="ph-num">02</span>Θα σας καλέσουμε άμεσα για εξατομικευμένη ενημέρωση</li>
+        </ol>
+        <dl class="cblock">
+          <dt>{c.role_label}</dt><dd>{c.company}</dd>
+          <dt>Διεύθυνση</dt><dd>{c.address}</dd>
+          <dt>Τηλέφωνο</dt><dd><a href={`tel:${c.tel}`}>{c.phone_display}</a></dd>
+          <dt>Email</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd>
+        </dl>
+      </div>
+      <div class="ph-card">
+        <h3>Φόρμα Ενδιαφέροντος</h3>
+        <p>{site.pages.retailers_form_intro}</p>
+        <p class="notice" role="note">Η φόρμα δεν είναι ακόμη ενεργή και δεν αποστέλλει στοιχεία.</p>
+        <form class="form ph-fields" onsubmit="return false">
+          {fields.map((f) => (
+            <label class={f.full ? 'full' : ''}>{f.label} *<input class="field" name={f.id} type={f.type} autocomplete={f.ac} required></label>
+          ))}
+          <label class="check full"><input type="checkbox" name="consent"> <span><a href="/privacy/">Πολιτική απορρήτου</a></span></label>
+          <div class="full"><button class="btn" type="submit" disabled title="Η φόρμα δεν είναι ακόμη ενεργή">Θέλω Ενημέρωση</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import SocialList from '../components/SocialList.astro';
+import site from '../data/site.json';
+const c = site.contact;
+---
+<Base title="Επικοινωνία" description={`Επικοινωνήστε με την αντιπροσωπεία AHAVA στην Κύπρο, ${c.company}: ${c.address}. Τηλέφωνο ${c.phone_display}, email ${c.email}.`} crumbs={[{ name: 'Επικοινωνία', href: '/contact/' }]}>
+  <div class="wrap phead">
+    <p class="eyebrow">Επικοινωνία</p>
+    <h1 class="h-catalog">Επικοινωνήστε μαζί μας</h1>
+  </div>
+  <div class="wrap cgrid" style="padding-bottom:64px">
+    <div>
+      <p class="eyebrow">{c.role_label}</p>
+      {c.logo_dark && <img src={c.logo_dark} width="220" height="48" alt={c.company_en} style="width:220px;height:auto;margin:8px 0 18px">}
+      <h2 style="font-size:1.35rem">{c.company}</h2>
+      {c.member_of && <p>{c.member_of}</p>}
+      <dl class="cblock">
+        <dt>Διεύθυνση</dt><dd>{c.address}</dd>
+        <dt>Τηλέφωνο</dt><dd><a href={`tel:${c.tel}`}>{c.phone_display}</a></dd>
+        {c.po_box && <><dt>Ταχ. Θυρίδα</dt><dd>{c.po_box}</dd></>}
+        {c.fax_display && <><dt>Φαξ</dt><dd>{c.fax_display}</dd></>}
+        <dt>Email</dt><dd><a href={`mailto:${c.email}`}>{c.email}</a></dd>
+        {c.web && <><dt>Ιστοσελίδα</dt><dd><a href={c.web} rel="noopener noreferrer">{c.web.replace('https://', '').replace(/\/$/, '')}</a></dd></>}
+      </dl>
+      <div class="actions" style="margin-top:28px">
+        <a class="btn" href={`tel:${c.tel}`}>Κλήση</a>
+        <a class="btn btn-line" href={`mailto:${c.email}`}>Email</a>
+        <a class="btn btn-line" href="/where-to-buy/">Σημεία πώλησης</a>
+      </div>
+      <div style="margin-top:28px">
+        <p class="eyebrow">Ακολουθήστε μας</p>
+        <SocialList links={site.socials} />
+      </div>
+    </div>
+    <div class="band">
+      <h2 style="font-size:1.35rem">Φόρμα επικοινωνίας</h2>
+      <p class="notice" role="note">Η φόρμα δεν είναι ακόμη ενεργή και δεν αποστέλλει μηνύματα.</p>
+      <form class="form" onsubmit="return false">
+        <label>Όνομα<input class="field" name="your-name" type="text" autocomplete="name"></label>
+        <label>Email<input class="field" name="your-email" type="email" autocomplete="email"></label>
+        <label>Θέμα<input class="field" name="your-subject" type="text"></label>
+        <label>Κείμενο<textarea class="field" name="your-message" rows="5"></textarea></label>
+        <div><button class="btn" type="submit" disabled title="Η φόρμα δεν είναι ακόμη ενεργή">Αποστολή</button></div>
+      </form>
+    </div>
+  </div>
+  {c.map_embed && <iframe class="map-embed" src={c.map_embed} title={`Χάρτης: ${c.address}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>}
+</Base>
