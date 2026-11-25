@@ -28,15 +28,16 @@ const values = [
 ];
 ---
 <Base title="AHAVA CY® – Dead Sea Mineral Skin Care Products" description="AHAVA στην Κύπρο: φόρμουλες που στηρίζονται σε φυσικά υλικά από τη Νεκρά Θάλασσα. Χωρίς parabens, vegan, δερματολογικά ελεγμένα. Βρείτε τα σε φαρμακεία." overlay image={I.aosScene.src}>
-  <section class="hero">
+  <section class="hero hero-split">
     <article class="hero-slide is-on">
-      <Img img={I.aosScene} eager sizes="100vw" alt={I.aosScene.alt} />
-      <div class="hero-wash"></div>
       <div class="hero-copy">
         <p class="eyebrow">Πίσω από την AHAVA</p>
         <h1>Στην AHAVA πάμε βαθύτερα και από την ομορφιά.</h1>
         <p class="lead">Βασισμένη σε μια περιοχή πλούσια σε πόρους, αφήνουμε τη φύση να οδηγήσει την επιστήμη μας και να σχεδιάσει φόρμουλες που επικεντρώνονται στο να φέρουν την φύση κατ΄ευθείαν σε εσάς.</p>
         <a class="btn btn-light" href="/products/">Δείτε τα προϊόντα</a>
+      </div>
+      <div class="hero-media">
+        <Img img={I.aosScene} eager sizes="(max-width: 767px) 100vw, 58vw" alt={I.aosScene.alt} />
       </div>
     </article>
   </section>
