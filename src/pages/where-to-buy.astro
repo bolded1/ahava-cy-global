@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+const locations = site.locations;
+const districts = [...new Set(locations.map((l) => l.district))].sort((a, b) => a.localeCompare(b, 'el'));
+const points = locations.map((l, i) => [l.lat, l.lng, i]);
+---
+<Base title="Σημεία πώλησης – φαρμακεία AHAVA στην Κύπρο" description={`Βρείτε τα προϊόντα AHAVA σε ${locations.length} φαρμακεία σε Λευκωσία, Λεμεσό, Λάρνακα και Πάφο. Χάρτης, διευθύνσεις, τηλέφωνα και οδηγίες.`} crumbs={[{ name: 'Σημεία πώλησης', href: '/where-to-buy/' }]}>
+  <link slot="head" rel="stylesheet" href="/vendor/leaflet/leaflet.css">
+  <div class="wrap phead">
+    <p class="eyebrow">Σημεία πώλησης</p>
+    <h1 class="h-catalog">Βρείτε φαρμακείο AHAVA</h1>
+    <p class="lead">Τα προϊόντα AHAVA διατίθενται σε {locations.length} φαρμακεία στην Κύπρο. Επιλέξτε πόλη ή αναζητήστε περιοχή, οδό ή φαρμακείο — στα ελληνικά ή στα λατινικά.</p>
+  </div>
+  <div class="wtb">
+    <div class="wtb-side">
+      <form class="wtb-filter" role="search" onsubmit="return false">
+        <div class="seg" role="group" aria-label="Πόλη">
+          <button type="button" data-town="" aria-pressed="true">Όλες</button>
+          {districts.map((d) => <button type="button" data-town={d} aria-pressed="false">{d}</button>)}
+        </div>
+        <label class="sr" for="s-q">Περιοχή, οδός ή όνομα φαρμακείου</label>
+        <input class="field" id="s-q" type="search" placeholder="π.χ. Στρόβολος, Γερμασόγεια, Κάτω Πάφος" autocomplete="off">
+        <p class="count" id="s-count" aria-live="polite">{locations.length} φαρμακεία</p>
+      </form>
+      <h2 class="sr">Λίστα φαρμακείων</h2>
+      <ul class="stores" id="stores">
+        {locations.map((l, i) => (
+          <li class="store" id={`s${i}`} data-i={i} data-town={l.district} data-text={[l.name, l.address, l.area, l.city, l.zip, l.district].filter(Boolean).join(' ')}>
+            <span class="d">{l.district}{l.area ? ` · ${l.area}` : ''}</span>
+            <h3>{l.name}</h3>
+            <p class="addr">{l.address}{l.zip ? `, ${l.zip}` : ''}{l.city ? `, ${l.city.replace(/,$/, '')}` : ''}</p>
+            {l.phone && <p>Τηλ.: <a href={`tel:${l.tel}`}>{l.phone}</a></p>}
+            <div class="actions">
+              {l.tel && <a class="btn btn-sm" href={`tel:${l.tel}`}>Κλήση</a>}
+              <a class="btn btn-sm btn-line" href={`https://www.google.com/maps/dir/?api=1&destination=${l.lat},${l.lng}`} rel="noopener noreferrer">Οδηγίες</a>
+              <button class="btn btn-sm btn-line js-show" type="button" data-i={i}>Στον χάρτη</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="empty" id="s-empty" hidden>Δεν βρέθηκαν φαρμακεία. Δοκιμάστε άλλη περιοχή.</p>
+    </div>
+    <div id="map" role="region" aria-label="Χάρτης φαρμακείων"></div>
+  </div>
+  <script is:inline define:vars={{ points }}>window.__PTS = points;</script>
+  <script is:inline src="/vendor/leaflet/leaflet.js" defer></script>
+  <script is:inline src="/js/greeklish.js" defer></script>
+  <script is:inline>
+  window.addEventListener('DOMContentLoaded', function () {
+    var P = window.__PTS;
+    var list = [].slice.call(document.querySelectorAll('.store'));
+    var q = document.getElementById('s-q');
+    var cnt = document.getElementById('s-count');
+    var emp = document.getElementById('s-empty');
+    var segs = [].slice.call(document.querySelectorAll('.seg button'));
+    var town = '';
+    var sk = window.ahavaSkeleton;
+    list.forEach(function (el) { el._t = sk(el.dataset.text + ' ' + el.dataset.town); });
+    var map = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([35.0, 33.25], 9);
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+    var markers = P.map(function (p) {
+      var el = list[p[2]];
+      var m = L.circleMarker([p[0], p[1]], { radius: 7, color: '#fff', weight: 2, fillColor: '#282928', fillOpacity: 1 }).addTo(map);
+      var tel = el.querySelector('a[href^="tel:"]');
+      m.bindPopup('<strong>' + el.querySelector('h3').textContent + '</strong><br>' + el.querySelector('.addr').textContent + (tel ? '<br><a href="' + tel.getAttribute('href') + '">' + tel.textContent + '</a>' : '') + '<br><a rel="noopener noreferrer" href="https://www.google.com/maps/dir/?api=1&destination=' + p[0] + ',' + p[1] + '">Οδηγίες</a>');
+      m.on('click', function () { act(p[2], false); });
+      return m;
+    });
+    function act(i, pan) {
+      list.forEach(function (x) { x.classList.remove('active'); });
+      list[i].classList.add('active');
+      if (pan) { map.setView([P[i][0], P[i][1]], 15); markers[i].openPopup(); }
+      else list[i].scrollIntoView({ block: 'nearest' });
+    }
+    function run(fit) {
+      var qq = sk(q.value);
+      var k = 0;
+      var b = [];
+      list.forEach(function (el, i) {
+        var ok = (!town || el.dataset.town === town) && (!qq || el._t.indexOf(qq) > -1);
+        el.hidden = !ok;
+        if (ok) { k++; b.push([P[i][0], P[i][1]]); if (!map.hasLayer(markers[i])) markers[i].addTo(map); }
+        else map.removeLayer(markers[i]);
+      });
+      cnt.textContent = k + (k === 1 ? ' φαρμακείο' : ' φαρμακεία');
+      emp.hidden = k > 0;
+      if (fit && b.length) map.fitBounds(b, { padding: [40, 40], maxZoom: 14 });
+      var u = new URL(location.href);
+      town ? u.searchParams.set('town', town) : u.searchParams.delete('town');
+      q.value.trim() ? u.searchParams.set('q', q.value.trim()) : u.searchParams.delete('q');
+      history.replaceState(null, '', u);
+    }
+    function setTown(t) {
+      town = t;
+      segs.forEach(function (s) { s.setAttribute('aria-pressed', s.dataset.town === t ? 'true' : 'false'); });
+    }
+    segs.forEach(function (s) { s.addEventListener('click', function () { setTown(s.dataset.town); run(true); }); });
+    var sp = new URLSearchParams(location.search);
+    if (sp.get('town')) setTown(sp.get('town'));
+    if (sp.get('q')) q.value = sp.get('q');
+    q.addEventListener('input', function () { run(true); });
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.js-show');
+      if (!b) return;
+      act(+b.dataset.i, true);
+      if (innerWidth < 1024) document.getElementById('map').scrollIntoView({ block: 'center' });
+    });
+    run(!!(sp.get('town') || sp.get('q')));
+    setTimeout(function () { map.invalidateSize(); }, 200);
+  });
+  </script>
+</Base>

@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+const V = site.videos;
+const sections = [...new Set(V.map((v) => v.section_heading_on_page))];
+---
+<Base title="Videos" description="Videos της AHAVA: Dead Sea Osmoter, Crystal Osmoter Facial Serum και Apple of Sodom – Botox χωρίς βελόνες." crumbs={[{ name: 'Videos', href: '/videos/' }]}>
+  <div class="wrap phead">
+    <p class="eyebrow">AHAVA</p>
+    <h1 class="h-catalog">Videos</h1>
+  </div>
+  {sections.map((s) => (
+    <section class="wrap" style="padding-bottom:64px">
+      <h2>{s}</h2>
+      <div class="videos">
+        {V.filter((v) => v.section_heading_on_page === s).map((v) => (
+          <figure>
+            <button class="lite-yt" type="button" data-id={v.id} data-title={v.iframe_title} aria-label={`Αναπαραγωγή: ${v.iframe_title}`} style={`background-image:url(https://i.ytimg.com/vi/${v.id}/hqdefault.jpg)`}>
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>{v.iframe_title}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  ))}
+  <script is:inline>
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.lite-yt');
+    if (!b || b.querySelector('iframe')) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.id + '?autoplay=1&rel=0';
+    f.title = b.dataset.title;
+    f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen = true;
+    b.appendChild(f);
+  });
+  </script>
+</Base>

@@ -1,0 +1,19 @@
+---
+interface ImgData { src: string; srcset: string; w: number; h: number; alt: string }
+interface Props { img: ImgData | null; alt?: string; sizes?: string; eager?: boolean; class?: string }
+const { img, alt, sizes = '(max-width: 700px) 100vw, 800px', eager = false, class: cls } = Astro.props;
+---
+{img && (
+  <img
+    class={cls}
+    src={img.src}
+    srcset={img.srcset}
+    sizes={sizes}
+    width={img.w}
+    height={img.h}
+    alt={alt ?? img.alt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : undefined}
+  />
+)}

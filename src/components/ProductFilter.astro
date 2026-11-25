@@ -1,0 +1,55 @@
+---
+import { facetsFor } from '../data/nav.js';
+const { showTop = true, top = null } = Astro.props;
+const groups = [['prosopo', 'Πρόσωπο'], ['soma', 'Σώμα']].filter(([t]) => !top || t === top).map(([t, n]) => ({ t, n, f: facetsFor(t) }));
+---
+<div class="toolbar"><div class="wrap">
+<form role="search" onsubmit="return false" id="pfilter">
+  <label class="sr" for="pf-q">Αναζήτηση προϊόντος</label>
+  <input class="field" id="pf-q" type="search" placeholder="Αναζήτηση προϊόντος ή σειράς" autocomplete="off">
+  {showTop ? (
+    <>
+      <label class="sr" for="pf-top">Πρόσωπο ή σώμα</label>
+      <select class="field" id="pf-top"><option value="">Πρόσωπο &amp; Σώμα</option><option value="prosopo">Πρόσωπο</option><option value="soma">Σώμα</option></select>
+    </>
+  ) : <span class="sr">Φίλτρο</span>}
+  <label class="sr" for="pf-cat">Κατηγορία</label>
+  <select class="field" id="pf-cat">
+    <option value="">Όλες οι κατηγορίες</option>
+    {groups.map((g) => g.f.map((f) => (
+      <optgroup label={`${g.n} · ${f.facet}`}>{f.items.map((c) => <option value={c.id}>{c.name}</option>)}</optgroup>
+    )))}
+  </select>
+  <p class="count" id="pf-count" aria-live="polite"></p>
+</form>
+</div></div>
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function () {
+  var q = document.getElementById('pf-q');
+  var t = document.getElementById('pf-top');
+  var c = document.getElementById('pf-cat');
+  var n = document.getElementById('pf-count');
+  if (!q) return;
+  var cards = [].slice.call(document.querySelectorAll('.pcard'));
+  function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+  cards.forEach(function (el) { el._n = norm(el.dataset.name || ''); });
+  var sp = new URLSearchParams(location.search);
+  if (sp.get('q')) q.value = sp.get('q');
+  if (sp.get('cat') && c) c.value = sp.get('cat');
+  if (t && sp.get('top')) t.value = sp.get('top');
+  function run() {
+    var qq = norm(q.value.trim());
+    var tt = t ? t.value : '';
+    var cc = c ? c.value : '';
+    var k = 0;
+    cards.forEach(function (el) {
+      var ok = (!qq || el._n.indexOf(qq) > -1) && (!tt || (' ' + el.dataset.tops + ' ').indexOf(' ' + tt + ' ') > -1) && (!cc || (' ' + el.dataset.cats + ' ').indexOf(' ' + cc + ' ') > -1);
+      el.hidden = !ok;
+      if (ok) k++;
+    });
+    n.textContent = k + (k === 1 ? ' προϊόν' : ' προϊόντα');
+  }
+  [q, t, c].forEach(function (e) { if (e) e.addEventListener('input', run); });
+  run();
+});
+</script>

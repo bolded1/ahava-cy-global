@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Crumbs from '../components/Crumbs.astro';
+import site from '../data/site.json';
+import P from '../data/products.json';
+import { catBySlug } from '../data/nav.js';
+const c = catBySlug['apple-of-sodom'];
+const bySlug = Object.fromEntries(P.products.map((p) => [p.slug, p]));
+const products = c.products.map((s) => bySlug[s]).filter(Boolean);
+const I = site.home_imgs;
+---
+<Base title="Apple of Sodom – Botox χωρίς βελόνες" description="Ίσως θα έπρεπε πρώτα να λάβετε υπ’ όψη σας τη νέα σειρά φροντίδας της επιδερμίδας Apple Of Sodom της AHAVA: πατενταρισμένη καινοτόμος βιοτεχνολογία για λείανση των ρυτίδων." crumbs={[{ name: 'Apple of Sodom', href: '/apple-of-sodom/' }]} overlay image={I.aosSalt.src}>
+  <section class="hero" style="min-height:70svh">
+    <article class="hero-slide is-on" style="min-height:70svh">
+      <Img img={I.aosSalt} eager sizes="100vw" alt={I.aosSalt.alt} />
+      <div class="hero-wash"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Apple of Sodom</p>
+        <h1>Botox χωρίς βελόνες</h1>
+        <p class="lead">Πατενταρισμένη καινοτόμος βιοτεχνολογία για λείανση και γέμισμα των ρυτίδων.</p>
+      </div>
+    </article>
+  </section>
+  <Crumbs crumbs={[{ name: 'Apple of Sodom', href: '/apple-of-sodom/' }]} />
+  <div class="wrap sec"><div class="prose narrow" set:html={site.pages.apple} /></div>
+  <section class="sec band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">Η σειρά</p>
+          <h2>Όλα τα προϊόντα Apple of Sodom</h2>
+        </div>
+        <a class="text-link" href="/where-to-buy/">Πού να τα βρείτε</a>
+      </div>
+      <ul class="grid">{products.map((p) => <ProductCard p={p} />)}</ul>
+    </div>
+  </section>
+</Base>

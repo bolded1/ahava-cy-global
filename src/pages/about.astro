@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Crumbs from '../components/Crumbs.astro';
+import site from '../data/site.json';
+const I = site.home_imgs;
+---
+<Base title="Μάθε για την AHAVA" description="Η AHAVA ιδρύθηκε το 1988 στη Νεκρά Θάλασσα. Γνωρίστε το Osmoter™, τις αξίες μας και την υπόσχεσή μας: χωρίς parabens, vegan, εγκεκριμένα για το ευαίσθητο δέρμα." crumbs={[{ name: 'Μάθε για την AHAVA', href: '/about/' }]} overlay image={I.hero.src}>
+  <section class="hero" style="min-height:70svh">
+    <article class="hero-slide is-on" style="min-height:70svh">
+      <Img img={I.hero} eager sizes="100vw" alt={I.hero.alt} />
+      <div class="hero-wash"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Πίσω από την AHAVA</p>
+        <h1>Βαθύτερα και από την ομορφιά</h1>
+      </div>
+    </article>
+  </section>
+  <Crumbs crumbs={[{ name: 'Μάθε για την AHAVA', href: '/about/' }]} />
+  <div class="wrap sec">
+    <div class="prose narrow" set:html={site.pages.about} />
+  </div>
+  <section class="sec band">
+    <div class="wrap center">
+      <h2>Ανακαλύψτε τα προϊόντα</h2>
+      <div class="actions" style="justify-content:center">
+        <a class="btn" href="/products/">Δείτε τα προϊόντα</a>
+        <a class="btn btn-line" href="/where-to-buy/">Σημεία πώλησης</a>
+      </div>
+    </div>
+  </section>
+</Base>

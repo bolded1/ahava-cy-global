@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import ProductFilter from '../../components/ProductFilter.astro';
+import FacetNav from '../../components/FacetNav.astro';
+import P from '../../data/products.json';
+const products = [...P.products].sort((a, b) => a.name.localeCompare(b.name, 'el'));
+---
+<Base title="Όλα τα προϊόντα AHAVA" description={`Ο κατάλογος AHAVA Κύπρου: ${products.length} προϊόντα φροντίδας προσώπου και σώματος με μεταλλικά στοιχεία της Νεκράς Θάλασσας. Βρείτε τα σε φαρμακεία.`} crumbs={[{ name: 'Προϊόντα', href: '/products/' }]}>
+  <div class="wrap phead center">
+    <p class="eyebrow">Κατάλογος</p>
+    <h1 class="h-catalog">Τα προϊόντα AHAVA</h1>
+    <p class="lead">{products.length} προϊόντα φροντίδας προσώπου και σώματος, διαθέσιμα σε φαρμακεία σε όλη την Κύπρο.</p>
+  </div>
+  <FacetNav />
+  <ProductFilter />
+  <div class="wrap" style="padding:28px 0 72px">
+    <ul class="grid">{products.map((p) => <ProductCard p={p} />)}</ul>
+  </div>
+</Base>

@@ -1,0 +1,4792 @@
+# Generated from src/data/redirects.json. Legacy ahavacy.com paths -> this brochure.
+[build]
+command = "npm run build"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "22"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Robots-Tag = "noindex, nofollow"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+for = "/img/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/fonts/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+for = "/_astro/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-osmoter-eye-concentrate/"
+status = 301
+force = true
+query = { attachment_id = "104" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-intensive-foot-cream/"
+status = 301
+force = true
+query = { attachment_id = "111" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-intensive-hand-cream/"
+status = 301
+force = true
+query = { attachment_id = "114" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-nourishing-body-cream/"
+status = 301
+force = true
+query = { attachment_id = "117" }
+
+[[redirects]]
+from = "/"
+to = "/products/dry-oil-body-mist-sea-kissed/"
+status = 301
+force = true
+query = { attachment_id = "132" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-firming-eye-cream/"
+status = 301
+force = true
+query = { attachment_id = "141" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-night-treatment/"
+status = 301
+force = true
+query = { attachment_id = "144" }
+
+[[redirects]]
+from = "/"
+to = "/products/eye-make-up-remover/"
+status = 301
+force = true
+query = { attachment_id = "150" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-mud-exfoliator/"
+status = 301
+force = true
+query = { attachment_id = "153" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-renewal-peel/"
+status = 301
+force = true
+query = { attachment_id = "156" }
+
+[[redirects]]
+from = "/"
+to = "/products/liquid-dead-sea-salt/"
+status = 301
+force = true
+query = { attachment_id = "168" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-age-control-all-in-one-eye-care/"
+status = 301
+force = true
+query = { attachment_id = "172" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-age-control-moisturizing-cream-broad-spectrum-spf15/"
+status = 301
+force = true
+query = { attachment_id = "175" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-mineral-shower-gel/"
+status = 301
+force = true
+query = { attachment_id = "184" }
+
+[[redirects]]
+from = "/"
+to = "/products/mensexfoliating-cleansing-gel/"
+status = 301
+force = true
+query = { attachment_id = "193" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion/"
+status = 301
+force = true
+query = { attachment_id = "199" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion-sea-kissed-ahavaa/"
+status = 301
+force = true
+query = { attachment_id = "208" }
+
+[[redirects]]
+from = "/"
+to = "/products/essential-day-moisturizer-combination-skin/"
+status = 301
+force = true
+query = { attachment_id = "31" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-day-cream/"
+status = 301
+force = true
+query = { attachment_id = "45" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-body-lotion-hibiscus-fig/"
+status = 301
+force = true
+query = { attachment_id = "4588" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-cream-wash-hibiscus-fig/"
+status = 301
+force = true
+query = { attachment_id = "4600" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-conditioner/"
+status = 301
+force = true
+query = { attachment_id = "4606" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-foot-cream/"
+status = 301
+force = true
+query = { attachment_id = "4609" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream/"
+status = 301
+force = true
+query = { attachment_id = "4612" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-sea-kissed/"
+status = 301
+force = true
+query = { attachment_id = "4624" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-shampoo/"
+status = 301
+force = true
+query = { attachment_id = "4633" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-shower-gel/"
+status = 301
+force = true
+query = { attachment_id = "4636" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-toning-water/"
+status = 301
+force = true
+query = { attachment_id = "4648" }
+
+[[redirects]]
+from = "/"
+to = "/products/moisturizing-dead-sea-salt-soap/"
+status = 301
+force = true
+query = { attachment_id = "4651" }
+
+[[redirects]]
+from = "/"
+to = "/products/natural-8-5-oz-dead-sea-bath-salt/"
+status = 301
+force = true
+query = { attachment_id = "4654" }
+
+[[redirects]]
+from = "/"
+to = "/products/natural-dead-sea-body-mud/"
+status = 301
+force = true
+query = { attachment_id = "4657" }
+
+[[redirects]]
+from = "/"
+to = "/products/purifying-dead-sea-mud-soap/"
+status = 301
+force = true
+query = { attachment_id = "4667" }
+
+[[redirects]]
+from = "/"
+to = "/products/purifying-mud-mask/"
+status = 301
+force = true
+query = { attachment_id = "4670" }
+
+[[redirects]]
+from = "/"
+to = "/products/refreshing-cleansing-gel/"
+status = 301
+force = true
+query = { attachment_id = "4673" }
+
+[[redirects]]
+from = "/"
+to = "/products/softening-butter-dead-sea-salt-scrub/"
+status = 301
+force = true
+query = { attachment_id = "4681" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-lotion-daily-firmness-protection-spf-30/"
+status = 301
+force = true
+query = { attachment_id = "5295" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-facial-renewal-peel-15pcs/"
+status = 301
+force = true
+query = { attachment_id = "5314" }
+
+[[redirects]]
+from = "/"
+to = "/products/kit-7-mask/"
+status = 301
+force = true
+query = { attachment_id = "5350" }
+
+[[redirects]]
+from = "/"
+to = "/products/kit-7-mask/"
+status = 301
+force = true
+query = { attachment_id = "5351" }
+
+[[redirects]]
+from = "/"
+to = "/products/kit-7-mask/"
+status = 301
+force = true
+query = { attachment_id = "5352" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion-srping-blossom-250ml/"
+status = 301
+force = true
+query = { attachment_id = "5360" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-body-lotion-250ml/"
+status = 301
+force = true
+query = { attachment_id = "5361" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-spring-blossom-100ml/"
+status = 301
+force = true
+query = { attachment_id = "5362" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-spring-blossom-100ml/"
+status = 301
+force = true
+query = { attachment_id = "5363" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-spring-blossom-100ml/"
+status = 301
+force = true
+query = { attachment_id = "5364" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-day-cream-broad-spectrum-spf20/"
+status = 301
+force = true
+query = { attachment_id = "54" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-night-cream/"
+status = 301
+force = true
+query = { attachment_id = "57" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-night-cream/"
+status = 301
+force = true
+query = { attachment_id = "58" }
+
+[[redirects]]
+from = "/"
+to = "/products/spring-blossom-shower-gel/"
+status = 301
+force = true
+query = { attachment_id = "6027" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-wrinkle-lotion-broad-spectrum-spf30/"
+status = 301
+force = true
+query = { attachment_id = "6028" }
+
+[[redirects]]
+from = "/"
+to = "/products/active-moisture-gel-cream/"
+status = 301
+force = true
+query = { attachment_id = "62" }
+
+[[redirects]]
+from = "/"
+to = "/products/age-control-brightening-and-anti-fatigue-eye-cream/"
+status = 301
+force = true
+query = { attachment_id = "66" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-concentrate-smoothing-lotion-50ml/"
+status = 301
+force = true
+query = { attachment_id = "7426" }
+
+[[redirects]]
+from = "/"
+to = "/products/all-in-one-toning-cleanser/"
+status = 301
+force = true
+query = { attachment_id = "77" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-nutri-action-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "7705" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-elasticity-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "7707" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-overnight-mask/"
+status = 301
+force = true
+query = { attachment_id = "7896" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-c-firming-serum/"
+status = 301
+force = true
+query = { attachment_id = "7903" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-day-cream-spf30-50ml/"
+status = 301
+force = true
+query = { attachment_id = "7908" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-firming-massage-mask/"
+status = 301
+force = true
+query = { attachment_id = "7911" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-of-sodom-advanced-smoothing-eye-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "7974" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-of-sodom-advanced-smoothing-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "7976" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-body-lotion-250ml/"
+status = 301
+force = true
+query = { attachment_id = "7979" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-hand-cream-100ml/"
+status = 301
+force = true
+query = { attachment_id = "7980" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-osmoter-eye-concentrate/"
+status = 301
+force = true
+query = { attachment_id = "8188" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-crystal-osmoter-x6-facial-serum/"
+status = 301
+force = true
+query = { attachment_id = "8191" }
+
+[[redirects]]
+from = "/"
+to = "/products/gentle-facial-cleansing-foam-200ml/"
+status = 301
+force = true
+query = { attachment_id = "8197" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-moisture-active-gel-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8201" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-moisture-active-gel-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8203" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-leave-on-mask-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8208" }
+
+[[redirects]]
+from = "/"
+to = "/products/pretinol-serum-safe-retinol-30ml/"
+status = 301
+force = true
+query = { attachment_id = "8212" }
+
+[[redirects]]
+from = "/"
+to = "/products/safe-retinol-pretinol-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8215" }
+
+[[redirects]]
+from = "/"
+to = "/products/lip-line-wrinkle-treatment-15ml/"
+status = 301
+force = true
+query = { attachment_id = "8220" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-day-cream-spf30-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8223" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-firming-massage-mask/"
+status = 301
+force = true
+query = { attachment_id = "8224" }
+
+[[redirects]]
+from = "/"
+to = "/products/24k-gold-mineral-mud-mask-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8247" }
+
+[[redirects]]
+from = "/"
+to = "/products/protecting-body-lotion-spf30-150ml/"
+status = 301
+force = true
+query = { attachment_id = "8255" }
+
+[[redirects]]
+from = "/"
+to = "/products/protecting-moisturizing-lotion-spf50-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8353" }
+
+[[redirects]]
+from = "/"
+to = "/products/protecting-moisturizing-lotion-spf50-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8354" }
+
+[[redirects]]
+from = "/"
+to = "/products/hydrating-styling-cream-200ml/"
+status = 301
+force = true
+query = { attachment_id = "8402" }
+
+[[redirects]]
+from = "/"
+to = "/products/hydrating-styling-cream-200ml/"
+status = 301
+force = true
+query = { attachment_id = "8403" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-eye-night-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "8407" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-eye-night-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "8408" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-correcting-gel-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8480" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-correcting-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "8485" }
+
+[[redirects]]
+from = "/"
+to = "/products/detox-cleansing-gel-100ml/"
+status = 301
+force = true
+query = { attachment_id = "8489" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-nourishing-body-cream/"
+status = 301
+force = true
+query = { attachment_id = "8506" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-intensive-foot-cream/"
+status = 301
+force = true
+query = { attachment_id = "8507" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-intensive-hand-cream/"
+status = 301
+force = true
+query = { attachment_id = "8508" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-replenishing-body-wash-400ml/"
+status = 301
+force = true
+query = { attachment_id = "8509" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-night-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8517" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-day-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8553" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-night-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "8556" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-facial-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "8559" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-facial-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "8560" }
+
+[[redirects]]
+from = "/"
+to = "/products/dare-to-glow/"
+status = 301
+force = true
+query = { attachment_id = "8853" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-y-ever-after/"
+status = 301
+force = true
+query = { attachment_id = "8855" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-love/"
+status = 301
+force = true
+query = { attachment_id = "8857" }
+
+[[redirects]]
+from = "/"
+to = "/products/extraordinary-you/"
+status = 301
+force = true
+query = { attachment_id = "8859" }
+
+[[redirects]]
+from = "/"
+to = "/products/lifting-trilogy/"
+status = 301
+force = true
+query = { attachment_id = "8861" }
+
+[[redirects]]
+from = "/"
+to = "/products/body-lotion-limited-edition-500ml-holiday-2021/"
+status = 301
+force = true
+query = { attachment_id = "8862" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-duo-set/"
+status = 301
+force = true
+query = { attachment_id = "8864" }
+
+[[redirects]]
+from = "/"
+to = "/products/sea-kissed-duo-set/"
+status = 301
+force = true
+query = { attachment_id = "8866" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-refining-eye-care-15ml/"
+status = 301
+force = true
+query = { attachment_id = "8900" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-eye-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "8903" }
+
+[[redirects]]
+from = "/"
+to = "/products/niacinamide-even-tone-body-balm-220ml/"
+status = 301
+force = true
+query = { attachment_id = "8906" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-promo-pack-cream/"
+status = 301
+force = true
+query = { attachment_id = "9021" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-promo-pack-serum/"
+status = 301
+force = true
+query = { attachment_id = "9023" }
+
+[[redirects]]
+from = "/"
+to = "/products/all-in-one-toning-cleanser/"
+status = 301
+force = true
+query = { attachment_id = "9029" }
+
+[[redirects]]
+from = "/"
+to = "/products/purifying-mud-mask/"
+status = 301
+force = true
+query = { attachment_id = "9030" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-shampoo/"
+status = 301
+force = true
+query = { attachment_id = "9031" }
+
+[[redirects]]
+from = "/"
+to = "/products/glossing-lip-oil-6ml/"
+status = 301
+force = true
+query = { attachment_id = "9081" }
+
+[[redirects]]
+from = "/"
+to = "/products/gentle-facial-cleansing-foam-200ml/"
+status = 301
+force = true
+query = { attachment_id = "9125" }
+
+[[redirects]]
+from = "/"
+to = "/products/lip-line-wrinkle-treatment-15ml/"
+status = 301
+force = true
+query = { attachment_id = "9126" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "9139" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-24-7-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9140" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-24k-gold-min-mud-mask/"
+status = 301
+force = true
+query = { attachment_id = "9141" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-purifying-mud-mask-18pcs/"
+status = 301
+force = true
+query = { attachment_id = "9143" }
+
+[[redirects]]
+from = "/"
+to = "/products/roll-on-mineral-deodorant/"
+status = 301
+force = true
+query = { attachment_id = "9144" }
+
+[[redirects]]
+from = "/"
+to = "/products/refreshing-cleansing-gel/"
+status = 301
+force = true
+query = { attachment_id = "9145" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-toning-water/"
+status = 301
+force = true
+query = { attachment_id = "9146" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-sea-kissed/"
+status = 301
+force = true
+query = { attachment_id = "9147" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion-sea-kissed-ahavaa/"
+status = 301
+force = true
+query = { attachment_id = "9148" }
+
+[[redirects]]
+from = "/"
+to = "/products/cc-cream-color-correction-skin-protection-broad-spectrum-spf30-30ml/"
+status = 301
+force = true
+query = { attachment_id = "9149" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-renewal-peel/"
+status = 301
+force = true
+query = { attachment_id = "9150" }
+
+[[redirects]]
+from = "/"
+to = "/products/eye-make-up-remover/"
+status = 301
+force = true
+query = { attachment_id = "9151" }
+
+[[redirects]]
+from = "/"
+to = "/products/dry-oil-body-mist-sea-kissed/"
+status = 301
+force = true
+query = { attachment_id = "9153" }
+
+[[redirects]]
+from = "/"
+to = "/products/detox-cleansing-gel-100ml/"
+status = 301
+force = true
+query = { attachment_id = "9159" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-of-sodom-advanced-smoothing-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "9160" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-crystal-osmoter-x6-facial-serum/"
+status = 301
+force = true
+query = { attachment_id = "9161" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-correcting-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "9162" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-elasticity-serum-30ml/"
+status = 301
+force = true
+query = { attachment_id = "9163" }
+
+[[redirects]]
+from = "/"
+to = "/products/pretinol-serum-safe-retinol-30ml/"
+status = 301
+force = true
+query = { attachment_id = "9164" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-osmoter-eye-concentrate/"
+status = 301
+force = true
+query = { attachment_id = "9165" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-night-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9166" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-night-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9168" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-correcting-gel-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9169" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-eye-night-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "9170" }
+
+[[redirects]]
+from = "/"
+to = "/products/active-moisture-gel-cream/"
+status = 301
+force = true
+query = { attachment_id = "9171" }
+
+[[redirects]]
+from = "/"
+to = "/products/advanced-deep-wrinkle-cream/"
+status = 301
+force = true
+query = { attachment_id = "9172" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-wrinkle-lotion-broad-spectrum-spf30/"
+status = 301
+force = true
+query = { attachment_id = "9173" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-day-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9174" }
+
+[[redirects]]
+from = "/"
+to = "/products/essential-day-moisturizer-combination-skin/"
+status = 301
+force = true
+query = { attachment_id = "9175" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-nutri-action-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9176" }
+
+[[redirects]]
+from = "/"
+to = "/products/safe-retinol-pretinol-cream-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9177" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-day-cream-broad-spectrum-spf20/"
+status = 301
+force = true
+query = { attachment_id = "9178" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-day-cream-spf30-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9179" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-firming-massage-mask/"
+status = 301
+force = true
+query = { attachment_id = "9180" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-c-firming-serum/"
+status = 301
+force = true
+query = { attachment_id = "9181" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-day-cream/"
+status = 301
+force = true
+query = { attachment_id = "9182" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-concentrate-smoothing-lotion-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9183" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-night-cream/"
+status = 301
+force = true
+query = { attachment_id = "9184" }
+
+[[redirects]]
+from = "/"
+to = "/products/age-control-brightening-and-anti-fatigue-eye-cream/"
+status = 301
+force = true
+query = { attachment_id = "9185" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-circles-uplift-eye-treatment/"
+status = 301
+force = true
+query = { attachment_id = "9187" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-refining-eye-care-15ml/"
+status = 301
+force = true
+query = { attachment_id = "9188" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-eye-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "9189" }
+
+[[redirects]]
+from = "/"
+to = "/products/glossing-lip-oil-6ml/"
+status = 301
+force = true
+query = { attachment_id = "9192" }
+
+[[redirects]]
+from = "/"
+to = "/products/sea-kissed-shower-gel-200ml/"
+status = 301
+force = true
+query = { attachment_id = "9196" }
+
+[[redirects]]
+from = "/"
+to = "/products/24k-gold-mineral-mud-mask-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9197" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-osmoter-eye-mask/"
+status = 301
+force = true
+query = { attachment_id = "9198" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-mud-exfoliator/"
+status = 301
+force = true
+query = { attachment_id = "9199" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-overnight-mask/"
+status = 301
+force = true
+query = { attachment_id = "9200" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-leave-on-mask-50ml/"
+status = 301
+force = true
+query = { attachment_id = "9201" }
+
+[[redirects]]
+from = "/"
+to = "/products/overnight-deep-wrinkle-mask/"
+status = 301
+force = true
+query = { attachment_id = "9202" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-of-sodom-advanced-smoothing-eye-cream-15ml/"
+status = 301
+force = true
+query = { attachment_id = "9203" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-skin-shield-spf-50-pa/"
+status = 301
+force = true
+query = { attachment_id = "9204" }
+
+[[redirects]]
+from = "/"
+to = "/products/moisturizing-dead-sea-salt-soap/"
+status = 301
+force = true
+query = { attachment_id = "9205" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-firming-eye-cream/"
+status = 301
+force = true
+query = { attachment_id = "9207" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-wrinkle-filler/"
+status = 301
+force = true
+query = { attachment_id = "9208" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-firming-neckdecollete-cream-75ml/"
+status = 301
+force = true
+query = { attachment_id = "9209" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-shower-gel/"
+status = 301
+force = true
+query = { attachment_id = "9210" }
+
+[[redirects]]
+from = "/"
+to = "/products/purifying-dead-sea-mud-soap/"
+status = 301
+force = true
+query = { attachment_id = "9211" }
+
+[[redirects]]
+from = "/"
+to = "/products/spring-blossom-shower-gel/"
+status = 301
+force = true
+query = { attachment_id = "9212" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion/"
+status = 301
+force = true
+query = { attachment_id = "9213" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion-srping-blossom-250ml/"
+status = 301
+force = true
+query = { attachment_id = "9214" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-foot-cream/"
+status = 301
+force = true
+query = { attachment_id = "9215" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream/"
+status = 301
+force = true
+query = { attachment_id = "9216" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-spring-blossom-100ml/"
+status = 301
+force = true
+query = { attachment_id = "9217" }
+
+[[redirects]]
+from = "/"
+to = "/products/protecting-body-lotion-spf30-150ml/"
+status = 301
+force = true
+query = { attachment_id = "9218" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-body-lotion-250ml/"
+status = 301
+force = true
+query = { attachment_id = "9220" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-hand-cream-100ml/"
+status = 301
+force = true
+query = { attachment_id = "9221" }
+
+[[redirects]]
+from = "/"
+to = "/products/softening-butter-dead-sea-salt-scrub/"
+status = 301
+force = true
+query = { attachment_id = "9222" }
+
+[[redirects]]
+from = "/"
+to = "/products/bath-salt-eucalyptus-jar-907g/"
+status = 301
+force = true
+query = { attachment_id = "9223" }
+
+[[redirects]]
+from = "/"
+to = "/products/bath-salt-lavender-jar-907g/"
+status = 301
+force = true
+query = { attachment_id = "9224" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-body-lotion-hibiscus-fig/"
+status = 301
+force = true
+query = { attachment_id = "9225" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-cream-wash-hibiscus-fig/"
+status = 301
+force = true
+query = { attachment_id = "9226" }
+
+[[redirects]]
+from = "/"
+to = "/products/liquid-dead-sea-salt/"
+status = 301
+force = true
+query = { attachment_id = "9227" }
+
+[[redirects]]
+from = "/"
+to = "/products/natural-8-5-oz-dead-sea-bath-salt/"
+status = 301
+force = true
+query = { attachment_id = "9228" }
+
+[[redirects]]
+from = "/"
+to = "/products/natural-dead-sea-body-mud/"
+status = 301
+force = true
+query = { attachment_id = "9229" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-nourishing-hair-mask/"
+status = 301
+force = true
+query = { attachment_id = "9230" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-conditioner/"
+status = 301
+force = true
+query = { attachment_id = "9231" }
+
+[[redirects]]
+from = "/"
+to = "/products/niacinamide-even-tone-body-balm-220ml/"
+status = 301
+force = true
+query = { attachment_id = "9232" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-clearing-mud-mask-15pcs/"
+status = 301
+force = true
+query = { attachment_id = "9233" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-overnight-deep-wrinkle-mask/"
+status = 301
+force = true
+query = { attachment_id = "9234" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-brightening-hydrat-mask-15pcs/"
+status = 301
+force = true
+query = { attachment_id = "9235" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-dunaliella-peel-off-mask-15pcs/"
+status = 301
+force = true
+query = { attachment_id = "9236" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-extreme-lifting-mask-18pcs/"
+status = 301
+force = true
+query = { attachment_id = "9237" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-hydration-cream-mask-18pcs/"
+status = 301
+force = true
+query = { attachment_id = "9238" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-mud-exfoliator-18pcs/"
+status = 301
+force = true
+query = { attachment_id = "9239" }
+
+[[redirects]]
+from = "/"
+to = "/products/mensexfoliating-cleansing-gel/"
+status = 301
+force = true
+query = { attachment_id = "9240" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-roll-on-mineral-deodorant/"
+status = 301
+force = true
+query = { attachment_id = "9241" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-mineral-shower-gel/"
+status = 301
+force = true
+query = { attachment_id = "9242" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-age-control-moisturizing-cream-broad-spectrum-spf15/"
+status = 301
+force = true
+query = { attachment_id = "9243" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-age-control-all-in-one-eye-care/"
+status = 301
+force = true
+query = { attachment_id = "9244" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-night-treatment/"
+status = 301
+force = true
+query = { attachment_id = "9255" }
+
+[[redirects]]
+from = "/"
+to = "/products/peptide-smoothing-body-balm-220ml/"
+status = 301
+force = true
+query = { attachment_id = "9274" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-crystal-osmoter-x6-facial-serum/"
+status = 301
+force = true
+query = { attachment_id = "97" }
+
+[[redirects]]
+from = "/comments/feed/"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/feed/"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/ftc_footer/footer-top/"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/uncategorized/feed/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/feed/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/feed/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/έλαια/feed/"
+to = "/category/elaia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/ενυδατικές-κρέμες/feed/"
+to = "/category/enydatikes-kremes/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/θεραπείες/feed/"
+to = "/category/therapeies/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/καθαρισμός-σώματος/feed/"
+to = "/category/katharismos-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/πήλινγκ/feed/"
+to = "/category/pilingk/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/πόδια/feed/"
+to = "/category/podia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/χέρια/feed/"
+to = "/category/cheria/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/feed/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/αντηλιακή-προστασία-σώματος/feed/"
+to = "/category/antiliaki-prostasia-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/εντατική-θρέψη-ξηροδερμία/feed/"
+to = "/category/entatiki-threpsi-xirodermia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/ενυδάτωση-σώματος/feed/"
+to = "/category/enydatosi-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/θεραπείες-σώματος/feed/"
+to = "/category/therapeies-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/περιποίηση-μαλλιών/feed/"
+to = "/category/peripoiisi-mallion/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/σαπούνι-χεριών/feed/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/feed/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/feed/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/youth-boosters/feed/"
+to = "/category/youth-boosters/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/αντιρυτιδική-δράση-σύσφιξη/feed/"
+to = "/category/antirytidiki-drasi-sysfixi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/βαθιές-γραμμές-botox-effect/feed/"
+to = "/category/vathies-grammes-botox-effect/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/δυσχρωμίες-πανάδες/feed/"
+to = "/category/dyschromies-panades/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/ενυδάτωση-προσώπου/feed/"
+to = "/category/enydatosi-prosopou/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/καθαρισμός-προσώπου/feed/"
+to = "/category/katharismos-prosopou/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/λάμψη-πρώτες-γραμμές/feed/"
+to = "/category/lampsi-protes-grammes/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/ολική-αναδόμηση-ανόρθωση/feed/"
+to = "/category/oliki-anadomisi-anorthosi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/feed/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/αντηλιακή-προστασία/feed/"
+to = "/category/antiliaki-prostasia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/καθαρισμός-ντεμακιγιάζ/feed/"
+to = "/category/katharismos-ntemakigiaz/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/κρέμες-νυκτός/feed/"
+to = "/category/kremes-nyktos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/κρέμες/feed/"
+to = "/category/kremes/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/λαιμός-ντεκολτέ/feed/"
+to = "/category/laimos-ntekolte/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/μάσκες-απολέπιση/feed/"
+to = "/category/maskes-apolepisi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/μάτια-χείλη/feed/"
+to = "/category/matia-cheili/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/οροί/feed/"
+to = "/category/oroi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/apple-of-sodom/feed/"
+to = "/category/apple-of-sodom/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/beauty-before-age/feed/"
+to = "/category/beauty-before-age/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/cleanse/feed/"
+to = "/category/cleanse/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/dark-spot/feed/"
+to = "/category/dark-spot/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/diamond-glow/feed/"
+to = "/category/diamond-glow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/essential-hydration/feed/"
+to = "/category/essential-hydration/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/extreme/feed/"
+to = "/category/extreme/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/feed/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/for-him/feed/"
+to = "/category/for-him/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/halobacteria/feed/"
+to = "/category/halobacteria/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/hyaluronic-acid/feed/"
+to = "/category/hyaluronic-acid/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/mineral-masks/feed/"
+to = "/category/mineral-masks/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/multivitamin/feed/"
+to = "/category/multivitamin/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/pretinol/feed/"
+to = "/category/pretinol/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/single-mask/feed/"
+to = "/category/single-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/single-mask/sheet-mask/feed/"
+to = "/category/single-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-clear/feed/"
+to = "/category/time-to-clear/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-hydrate/feed/"
+to = "/category/time-to-hydrate/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-revitalize/feed/"
+to = "/category/time-to-revitalize/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-smooth/feed/"
+to = "/category/time-to-smooth/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/uplift/feed/"
+to = "/category/uplift/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/πακέτα-kits/feed/"
+to = "/category/paketa-kits/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/activating-smoothing-essence/"
+to = "/apple-of-sodom/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/shop/feed/"
+to = "/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/about-us/"
+to = "/about/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/contact-us/"
+to = "/contact/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/gdpr-policy/"
+to = "/privacy/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/locations/"
+to = "/where-to-buy/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/retailers/"
+to = "/synergasia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/shop/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/24k-gold-mineral-mud-mask-50ml/"
+to = "/products/24k-gold-mineral-mud-mask-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/6ml-single-use-24k-gold-min-mud-mask/"
+to = "/products/6ml-single-use-24k-gold-min-mud-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/6ml-single-use-brightening-hydrat-mask-15pcs/"
+to = "/products/6ml-single-use-brightening-hydrat-mask-15pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/6ml-single-use-clearing-mud-mask-15pcs/"
+to = "/products/6ml-single-use-clearing-mud-mask-15pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/6ml-single-use-overnight-deep-wrinkle-mask/"
+to = "/products/6ml-single-use-overnight-deep-wrinkle-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/7905/"
+to = "/products/multivitamin-day-cream-spf30-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8488/"
+to = "/products/detox-cleansing-gel-100ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8ml-single-dunaliella-peel-off-mask-15pcs/"
+to = "/products/8ml-single-dunaliella-peel-off-mask-15pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8ml-single-extreme-lifting-mask-18pcs/"
+to = "/products/8ml-single-extreme-lifting-mask-18pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8ml-single-facial-renewal-peel-15pcs/"
+to = "/products/8ml-single-facial-renewal-peel-15pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8ml-single-hydration-cream-mask-18pcs/"
+to = "/products/8ml-single-hydration-cream-mask-18pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8ml-single-mud-exfoliator-18pcs/"
+to = "/products/8ml-single-mud-exfoliator-18pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/8ml-single-purifying-mud-mask-18pcs/"
+to = "/products/8ml-single-purifying-mud-mask-18pcs/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/active-moisture-gel-cream/"
+to = "/products/active-moisture-gel-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/advanced-deep-wrinkle-cream/"
+to = "/products/advanced-deep-wrinkle-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/age-control-brightening-and-anti-fatigue-eye-cream/"
+to = "/products/age-control-brightening-and-anti-fatigue-eye-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/all-in-one-toning-cleanser/"
+to = "/products/all-in-one-toning-cleanser/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/apple-of-sodom-advanced-smoothing-eye-cream-15ml/"
+to = "/products/apple-of-sodom-advanced-smoothing-eye-cream-15ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/apple-of-sodom-advanced-smoothing-serum-30ml/"
+to = "/products/apple-of-sodom-advanced-smoothing-serum-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/apple-y-ever-after/"
+to = "/products/apple-y-ever-after/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/bath-salt-eucalyptus-jar-907g/"
+to = "/products/bath-salt-eucalyptus-jar-907g/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/bath-salt-lavender-jar-907g/"
+to = "/products/bath-salt-lavender-jar-907g/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/body-lotion-limited-edition-500ml-holiday-2021/"
+to = "/products/body-lotion-limited-edition-500ml-holiday-2021/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/cc-cream-color-correction-skin-protection-broad-spectrum-spf30-30ml/"
+to = "/products/cc-cream-color-correction-skin-protection-broad-spectrum-spf30-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dare-to-glow/"
+to = "/products/dare-to-glow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dark-circles-uplift-eye-treatment/"
+to = "/products/dark-circles-uplift-eye-treatment/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dark-spot-correcting-gel-cream-50ml/"
+to = "/products/dark-spot-correcting-gel-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dark-spot-correcting-serum-30ml/"
+to = "/products/dark-spot-correcting-serum-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dark-spot-promo-pack-cream/"
+to = "/products/dark-spot-promo-pack-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dark-spot-promo-pack-serum/"
+to = "/products/dark-spot-promo-pack-serum/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dead-sea-crystal-osmoter-x6-facial-serum/"
+to = "/products/dead-sea-crystal-osmoter-x6-facial-serum/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dead-sea-osmoter-eye-concentrate/"
+to = "/products/dead-sea-osmoter-eye-concentrate/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dead-sea-osmoter-eye-mask/"
+to = "/products/dead-sea-osmoter-eye-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/deep-nourishing-hair-mask/"
+to = "/products/deep-nourishing-hair-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/deep-wrinkle-filler/"
+to = "/products/deep-wrinkle-filler/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/deep-wrinkle-lotion-broad-spectrum-spf30/"
+to = "/products/deep-wrinkle-lotion-broad-spectrum-spf30/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dermud-intensive-foot-cream/"
+to = "/products/dermud-intensive-foot-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dermud-intensive-hand-cream/"
+to = "/products/dermud-intensive-hand-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dermud-nourishing-body-cream/"
+to = "/products/dermud-nourishing-body-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dermud-replenishing-body-wash-400ml/"
+to = "/products/dermud-replenishing-body-wash-400ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/diamond-glow-day-cream-50ml/"
+to = "/products/diamond-glow-day-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/diamond-glow-facial-serum-30ml/"
+to = "/products/diamond-glow-facial-serum-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/diamond-glow-night-cream-50ml/"
+to = "/products/diamond-glow-night-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/diamond-glow-refining-eye-care-15ml/"
+to = "/products/diamond-glow-refining-eye-care-15ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/dry-oil-body-mist-sea-kissed/"
+to = "/products/dry-oil-body-mist-sea-kissed/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/essential-day-moisturizer-combination-skin/"
+to = "/products/essential-day-moisturizer-combination-skin/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/extraordinary-you/"
+to = "/products/extraordinary-you/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/extreme-day-cream/"
+to = "/products/extreme-day-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/extreme-firming-eye-cream/"
+to = "/products/extreme-firming-eye-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/extreme-firming-neckdecollete-cream-75ml/"
+to = "/products/extreme-firming-neckdecollete-cream-75ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/extreme-lotion-daily-firmness-protection-spf-30/"
+to = "/products/extreme-lotion-daily-firmness-protection-spf-30/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/extreme-night-treatment/"
+to = "/products/extreme-night-treatment/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/eye-make-up-remover/"
+to = "/products/eye-make-up-remover/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/facial-moisture-active-gel-cream-50ml/"
+to = "/products/facial-moisture-active-gel-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/facial-mud-exfoliator/"
+to = "/products/facial-mud-exfoliator/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/facial-renewal-peel/"
+to = "/products/facial-renewal-peel/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/facial-skin-shield-spf-50-pa/"
+to = "/products/facial-skin-shield-spf-50-pa/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/gentle-facial-cleansing-foam-200ml/"
+to = "/products/gentle-facial-cleansing-foam-200ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/glossing-lip-oil-6ml/"
+to = "/products/glossing-lip-oil-6ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/halobacteria-restoring-elasticity-serum-30ml/"
+to = "/products/halobacteria-restoring-elasticity-serum-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/halobacteria-restoring-nutri-action-cream-50ml/"
+to = "/products/halobacteria-restoring-nutri-action-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/halobacteria-restoring-overnight-mask/"
+to = "/products/halobacteria-restoring-overnight-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/hyaluronic-acid-24-7-cream-50ml/"
+to = "/products/hyaluronic-acid-24-7-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/hyaluronic-acid-eye-cream-15ml/"
+to = "/products/hyaluronic-acid-eye-cream-15ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/hyaluronic-acid-leave-on-mask-50ml/"
+to = "/products/hyaluronic-acid-leave-on-mask-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/hyaluronic-acid-serum-30ml/"
+to = "/products/hyaluronic-acid-serum-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/hydrating-styling-cream-200ml/"
+to = "/products/hydrating-styling-cream-200ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/kit-7-mask/"
+to = "/products/kit-7-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/lifting-trilogy/"
+to = "/products/lifting-trilogy/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/lip-line-wrinkle-treatment-15ml/"
+to = "/products/lip-line-wrinkle-treatment-15ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/liquid-dead-sea-salt/"
+to = "/products/liquid-dead-sea-salt/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mens-age-control-all-in-one-eye-care/"
+to = "/products/mens-age-control-all-in-one-eye-care/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mens-age-control-moisturizing-cream-broad-spectrum-spf15/"
+to = "/products/mens-age-control-moisturizing-cream-broad-spectrum-spf15/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mens-mineral-shower-gel/"
+to = "/products/mens-mineral-shower-gel/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mens-roll-on-mineral-deodorant/"
+to = "/products/mens-roll-on-mineral-deodorant/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mensexfoliating-cleansing-gel/"
+to = "/products/mensexfoliating-cleansing-gel/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-body-lotion-sea-kissed-ahavaa/"
+to = "/products/mineral-body-lotion-sea-kissed-ahavaa/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-body-lotion-srping-blossom-250ml/"
+to = "/products/mineral-body-lotion-srping-blossom-250ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-body-lotion/"
+to = "/products/mineral-body-lotion/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-botanic-body-lotion-hibiscus-fig/"
+to = "/products/mineral-botanic-body-lotion-hibiscus-fig/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-botanic-cream-wash-hibiscus-fig/"
+to = "/products/mineral-botanic-cream-wash-hibiscus-fig/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-botanic-duo-set/"
+to = "/products/mineral-botanic-duo-set/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-conditioner/"
+to = "/products/mineral-conditioner/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-foot-cream/"
+to = "/products/mineral-foot-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-hand-cream-sea-kissed/"
+to = "/products/mineral-hand-cream-sea-kissed/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-hand-cream-spring-blossom-100ml/"
+to = "/products/mineral-hand-cream-spring-blossom-100ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-hand-cream/"
+to = "/products/mineral-hand-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-shampoo/"
+to = "/products/mineral-shampoo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-shower-gel/"
+to = "/products/mineral-shower-gel/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/mineral-toning-water/"
+to = "/products/mineral-toning-water/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/moisturizing-dead-sea-salt-soap/"
+to = "/products/moisturizing-dead-sea-salt-soap/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/multivitamin-c-firming-serum/"
+to = "/products/multivitamin-c-firming-serum/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/multivitamin-firming-massage-mask/"
+to = "/products/multivitamin-firming-massage-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/natural-8-5-oz-dead-sea-bath-salt/"
+to = "/products/natural-8-5-oz-dead-sea-bath-salt/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/natural-dead-sea-body-mud/"
+to = "/products/natural-dead-sea-body-mud/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/niacinamide-even-tone-body-balm-220ml/"
+to = "/products/niacinamide-even-tone-body-balm-220ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/osmoter-concentrate-smoothing-lotion-50ml/"
+to = "/products/osmoter-concentrate-smoothing-lotion-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/osmoter-love/"
+to = "/products/osmoter-love/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/osmoter-skin-responsive-eye-night-cream-15ml/"
+to = "/products/osmoter-skin-responsive-eye-night-cream-15ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/osmoter-skin-responsive-night-cream-50ml/"
+to = "/products/osmoter-skin-responsive-night-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/overnight-deep-wrinkle-mask/"
+to = "/products/overnight-deep-wrinkle-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/peptide-smoothing-body-balm-220ml/"
+to = "/products/peptide-smoothing-body-balm-220ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/pretinol-serum-safe-retinol-30ml/"
+to = "/products/pretinol-serum-safe-retinol-30ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/protecting-body-lotion-spf30-150ml/"
+to = "/products/protecting-body-lotion-spf30-150ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/protecting-moisturizing-lotion-spf50-50ml/"
+to = "/products/protecting-moisturizing-lotion-spf50-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/purifying-dead-sea-mud-soap/"
+to = "/products/purifying-dead-sea-mud-soap/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/purifying-mud-mask/"
+to = "/products/purifying-mud-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/refreshing-cleansing-gel/"
+to = "/products/refreshing-cleansing-gel/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/roll-on-mineral-deodorant/"
+to = "/products/roll-on-mineral-deodorant/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/safe-retinol-pretinol-cream-50ml/"
+to = "/products/safe-retinol-pretinol-cream-50ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/sea-kissed-duo-set/"
+to = "/products/sea-kissed-duo-set/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/sea-kissed-shower-gel-200ml/"
+to = "/products/sea-kissed-shower-gel-200ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/softening-butter-dead-sea-salt-scrub/"
+to = "/products/softening-butter-dead-sea-salt-scrub/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/spring-blossom-shower-gel/"
+to = "/products/spring-blossom-shower-gel/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/uplift-day-cream-broad-spectrum-spf20/"
+to = "/products/uplift-day-cream-broad-spectrum-spf20/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/uplift-night-cream/"
+to = "/products/uplift-night-cream/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/vivid-burgundy-mineral-body-lotion-250ml/"
+to = "/products/vivid-burgundy-mineral-body-lotion-250ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product/vivid-burgundy-mineral-hand-cream-100ml/"
+to = "/products/vivid-burgundy-mineral-hand-cream-100ml/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/uncategorized/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/έλαια/"
+to = "/category/elaia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/ενυδατικές-κρέμες/"
+to = "/category/enydatikes-kremes/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/θεραπείες/"
+to = "/category/therapeies/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/καθαρισμός-σώματος/"
+to = "/category/katharismos-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/πήλινγκ/"
+to = "/category/pilingk/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/πόδια/"
+to = "/category/podia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανά-κατηγορία/χέρια/"
+to = "/category/cheria/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/αντηλιακή-προστασία-σώματος/"
+to = "/category/antiliaki-prostasia-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/εντατική-θρέψη-ξηροδερμία/"
+to = "/category/entatiki-threpsi-xirodermia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/ενυδάτωση-σώματος/"
+to = "/category/enydatosi-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/θεραπείες-σώματος/"
+to = "/category/therapeies-somatos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/ανάγκη-σώματος/περιποίηση-μαλλιών/"
+to = "/category/peripoiisi-mallion/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/περιποίηση-σώματος/σαπούνι-χεριών/"
+to = "/category/soma/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/youth-boosters/"
+to = "/category/youth-boosters/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/αντιρυτιδική-δράση-σύσφιξη/"
+to = "/category/antirytidiki-drasi-sysfixi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/βαθιές-γραμμές-botox-effect/"
+to = "/category/vathies-grammes-botox-effect/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/δυσχρωμίες-πανάδες/"
+to = "/category/dyschromies-panades/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/ενυδάτωση-προσώπου/"
+to = "/category/enydatosi-prosopou/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/καθαρισμός-προσώπου/"
+to = "/category/katharismos-prosopou/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/λάμψη-πρώτες-γραμμές/"
+to = "/category/lampsi-protes-grammes/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/ανάγκη-προσώπου/ολική-αναδόμηση-ανόρθωση/"
+to = "/category/oliki-anadomisi-anorthosi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/αντηλιακή-προστασία/"
+to = "/category/antiliaki-prostasia/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/καθαρισμός-ντεμακιγιάζ/"
+to = "/category/katharismos-ntemakigiaz/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/κρέμες-νυκτός/"
+to = "/category/kremes-nyktos/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/κρέμες/"
+to = "/category/kremes/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/λαιμός-ντεκολτέ/"
+to = "/category/laimos-ntekolte/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/μάσκες-απολέπιση/"
+to = "/category/maskes-apolepisi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/μάτια-χείλη/"
+to = "/category/matia-cheili/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/κατηγορία-φροντίδα-προσώπου/οροί/"
+to = "/category/oroi/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/"
+to = "/category/prosopo/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/apple-of-sodom/"
+to = "/category/apple-of-sodom/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/beauty-before-age/"
+to = "/category/beauty-before-age/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/cleanse/"
+to = "/category/cleanse/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/dark-spot/"
+to = "/category/dark-spot/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/diamond-glow/"
+to = "/category/diamond-glow/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/essential-hydration/"
+to = "/category/essential-hydration/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/extreme/"
+to = "/category/extreme/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/for-him/"
+to = "/category/for-him/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/halobacteria/"
+to = "/category/halobacteria/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/hyaluronic-acid/"
+to = "/category/hyaluronic-acid/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/mineral-masks/"
+to = "/category/mineral-masks/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/multivitamin/"
+to = "/category/multivitamin/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/pretinol/"
+to = "/category/pretinol/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/single-mask/"
+to = "/category/single-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/single-mask/sheet-mask/"
+to = "/category/single-mask/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-clear/"
+to = "/category/time-to-clear/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-hydrate/"
+to = "/category/time-to-hydrate/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-revitalize/"
+to = "/category/time-to-revitalize/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/time-to-smooth/"
+to = "/category/time-to-smooth/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/uplift/"
+to = "/category/uplift/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-category/φροντίδα-προσώπου/σειρά-φροντίδα-προσώπου/πακέτα-kits/"
+to = "/category/paketa-kits/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/body-balm/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/botox-αντιγήρανση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/conditioner/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/άλατα/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/έντονη-ξηροδερμία/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ανανέωση-κυττάρων/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/αντηλιακό/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/αντιγήρανση-ενυδάτωση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/αντιγήρανση-σύσφιξη/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/αντιγήρανση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/απολέπιση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/αποσμητικά/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/αφρόλουτρα/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/διφασικό-ντεμακιγιάζ/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/δυσχρωμίες-πανάδες/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ενεργοποιητές/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ενυδάτωση-προστασία/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ενυδάτωση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ευεξία-ενυδάτωση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/θεραπεία-νύχτας-ματιών/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/θεραπεία-νύχτας-προσώπου/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/καθαρισμός/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/καθαριστικό-gel/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/κρέμα-διαμόρφωσης/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/λάμψη-ενυδάτωση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/λάμψη-πρώτες-γραμμές/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/λασποθεραπεία/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/λιπαρότητα-ακμή/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/λιπαρότητα/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/μάσκα/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/μαύρα-στίγματα-λάμψη/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/μαύροι-κύκλοι/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ξηρά-λάδια-σώματος/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ολική-αναδόμηση-ανόρθωση/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/ομοιόμορφος-χρωματικός-τόνος/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/σαμπουάν/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/σύσφιξη-lifting/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/σύσφιξη-λάμψη/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/product-tag/τονωτική-λοσιόν/"
+to = "/products/"
+status = 301
+force = true
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-osmoter-eye-concentrate/"
+status = 301
+force = true
+query = { p = "103" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-nourishing-hair-mask/"
+status = 301
+force = true
+query = { p = "106" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-wrinkle-filler/"
+status = 301
+force = true
+query = { p = "108" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-intensive-foot-cream/"
+status = 301
+force = true
+query = { p = "110" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-intensive-hand-cream/"
+status = 301
+force = true
+query = { p = "113" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-nourishing-body-cream/"
+status = 301
+force = true
+query = { p = "116" }
+
+[[redirects]]
+from = "/"
+to = "/products/dry-oil-body-mist-sea-kissed/"
+status = 301
+force = true
+query = { p = "131" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-firming-eye-cream/"
+status = 301
+force = true
+query = { p = "140" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-night-treatment/"
+status = 301
+force = true
+query = { p = "143" }
+
+[[redirects]]
+from = "/"
+to = "/products/eye-make-up-remover/"
+status = 301
+force = true
+query = { p = "149" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-mud-exfoliator/"
+status = 301
+force = true
+query = { p = "152" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-renewal-peel/"
+status = 301
+force = true
+query = { p = "155" }
+
+[[redirects]]
+from = "/"
+to = "/products/active-moisture-gel-cream/"
+status = 301
+force = true
+query = { p = "16" }
+
+[[redirects]]
+from = "/"
+to = "/products/liquid-dead-sea-salt/"
+status = 301
+force = true
+query = { p = "167" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-age-control-all-in-one-eye-care/"
+status = 301
+force = true
+query = { p = "171" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-age-control-moisturizing-cream-broad-spectrum-spf15/"
+status = 301
+force = true
+query = { p = "174" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-mineral-shower-gel/"
+status = 301
+force = true
+query = { p = "183" }
+
+[[redirects]]
+from = "/"
+to = "/products/mens-roll-on-mineral-deodorant/"
+status = 301
+force = true
+query = { p = "186" }
+
+[[redirects]]
+from = "/"
+to = "/products/mensexfoliating-cleansing-gel/"
+status = 301
+force = true
+query = { p = "192" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion/"
+status = 301
+force = true
+query = { p = "198" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion-sea-kissed-ahavaa/"
+status = 301
+force = true
+query = { p = "207" }
+
+[[redirects]]
+from = "/"
+to = "/products/essential-day-moisturizer-combination-skin/"
+status = 301
+force = true
+query = { p = "30" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-day-cream/"
+status = 301
+force = true
+query = { p = "36" }
+
+[[redirects]]
+from = "/"
+to = "/videos/"
+status = 301
+force = true
+query = { p = "4472" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-body-lotion-hibiscus-fig/"
+status = 301
+force = true
+query = { p = "4587" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-cream-wash-hibiscus-fig/"
+status = 301
+force = true
+query = { p = "4599" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-conditioner/"
+status = 301
+force = true
+query = { p = "4605" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-foot-cream/"
+status = 301
+force = true
+query = { p = "4608" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream/"
+status = 301
+force = true
+query = { p = "4611" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-sea-kissed/"
+status = 301
+force = true
+query = { p = "4623" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-shampoo/"
+status = 301
+force = true
+query = { p = "4632" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-shower-gel/"
+status = 301
+force = true
+query = { p = "4635" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-toning-water/"
+status = 301
+force = true
+query = { p = "4647" }
+
+[[redirects]]
+from = "/"
+to = "/products/moisturizing-dead-sea-salt-soap/"
+status = 301
+force = true
+query = { p = "4650" }
+
+[[redirects]]
+from = "/"
+to = "/products/natural-8-5-oz-dead-sea-bath-salt/"
+status = 301
+force = true
+query = { p = "4653" }
+
+[[redirects]]
+from = "/"
+to = "/products/natural-dead-sea-body-mud/"
+status = 301
+force = true
+query = { p = "4656" }
+
+[[redirects]]
+from = "/"
+to = "/products/overnight-deep-wrinkle-mask/"
+status = 301
+force = true
+query = { p = "4664" }
+
+[[redirects]]
+from = "/"
+to = "/products/purifying-dead-sea-mud-soap/"
+status = 301
+force = true
+query = { p = "4666" }
+
+[[redirects]]
+from = "/"
+to = "/products/purifying-mud-mask/"
+status = 301
+force = true
+query = { p = "4669" }
+
+[[redirects]]
+from = "/"
+to = "/products/refreshing-cleansing-gel/"
+status = 301
+force = true
+query = { p = "4672" }
+
+[[redirects]]
+from = "/"
+to = "/products/roll-on-mineral-deodorant/"
+status = 301
+force = true
+query = { p = "4675" }
+
+[[redirects]]
+from = "/"
+to = "/products/softening-butter-dead-sea-salt-scrub/"
+status = 301
+force = true
+query = { p = "4680" }
+
+[[redirects]]
+from = "/"
+to = "/apple-of-sodom/"
+status = 301
+force = true
+query = { p = "4783" }
+
+[[redirects]]
+from = "/"
+to = "/products/gentle-facial-cleansing-foam-200ml/"
+status = 301
+force = true
+query = { p = "5024" }
+
+[[redirects]]
+from = "/"
+to = "/products/24k-gold-mineral-mud-mask-50ml/"
+status = 301
+force = true
+query = { p = "5025" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-firming-neckdecollete-cream-75ml/"
+status = 301
+force = true
+query = { p = "5033" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-hand-cream-spring-blossom-100ml/"
+status = 301
+force = true
+query = { p = "5037" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-body-lotion-srping-blossom-250ml/"
+status = 301
+force = true
+query = { p = "5038" }
+
+[[redirects]]
+from = "/"
+to = "/products/kit-7-mask/"
+status = 301
+force = true
+query = { p = "5057" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-extreme-lifting-mask-18pcs/"
+status = 301
+force = true
+query = { p = "5058" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-hydration-cream-mask-18pcs/"
+status = 301
+force = true
+query = { p = "5060" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-purifying-mud-mask-18pcs/"
+status = 301
+force = true
+query = { p = "5061" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-mud-exfoliator-18pcs/"
+status = 301
+force = true
+query = { p = "5062" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-facial-renewal-peel-15pcs/"
+status = 301
+force = true
+query = { p = "5063" }
+
+[[redirects]]
+from = "/"
+to = "/products/8ml-single-dunaliella-peel-off-mask-15pcs/"
+status = 301
+force = true
+query = { p = "5064" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-brightening-hydrat-mask-15pcs/"
+status = 301
+force = true
+query = { p = "5065" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-clearing-mud-mask-15pcs/"
+status = 301
+force = true
+query = { p = "5066" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-24k-gold-min-mud-mask/"
+status = 301
+force = true
+query = { p = "5067" }
+
+[[redirects]]
+from = "/"
+to = "/products/6ml-single-use-overnight-deep-wrinkle-mask/"
+status = 301
+force = true
+query = { p = "5068" }
+
+[[redirects]]
+from = "/"
+to = "/products/sea-kissed-shower-gel-200ml/"
+status = 301
+force = true
+query = { p = "5076" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-osmoter-eye-mask/"
+status = 301
+force = true
+query = { p = "5218" }
+
+[[redirects]]
+from = "/"
+to = "/products/extreme-lotion-daily-firmness-protection-spf-30/"
+status = 301
+force = true
+query = { p = "5221" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-day-cream-broad-spectrum-spf20/"
+status = 301
+force = true
+query = { p = "53" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { p = "5587" }
+
+[[redirects]]
+from = "/"
+to = "/products/uplift-night-cream/"
+status = 301
+force = true
+query = { p = "56" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-circles-uplift-eye-treatment/"
+status = 301
+force = true
+query = { p = "5613" }
+
+[[redirects]]
+from = "/"
+to = "/products/deep-wrinkle-lotion-broad-spectrum-spf30/"
+status = 301
+force = true
+query = { p = "6025" }
+
+[[redirects]]
+from = "/"
+to = "/products/spring-blossom-shower-gel/"
+status = 301
+force = true
+query = { p = "6026" }
+
+[[redirects]]
+from = "/"
+to = "/products/advanced-deep-wrinkle-cream/"
+status = 301
+force = true
+query = { p = "63" }
+
+[[redirects]]
+from = "/"
+to = "/products/lip-line-wrinkle-treatment-15ml/"
+status = 301
+force = true
+query = { p = "6480" }
+
+[[redirects]]
+from = "/"
+to = "/products/cc-cream-color-correction-skin-protection-broad-spectrum-spf30-30ml/"
+status = 301
+force = true
+query = { p = "6482" }
+
+[[redirects]]
+from = "/"
+to = "/products/age-control-brightening-and-anti-fatigue-eye-cream/"
+status = 301
+force = true
+query = { p = "65" }
+
+[[redirects]]
+from = "/"
+to = "/products/pretinol-serum-safe-retinol-30ml/"
+status = 301
+force = true
+query = { p = "7006" }
+
+[[redirects]]
+from = "/"
+to = "/products/safe-retinol-pretinol-cream-50ml/"
+status = 301
+force = true
+query = { p = "7009" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-24-7-cream-50ml/"
+status = 301
+force = true
+query = { p = "7057" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-serum-30ml/"
+status = 301
+force = true
+query = { p = "7059" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-leave-on-mask-50ml/"
+status = 301
+force = true
+query = { p = "7063" }
+
+[[redirects]]
+from = "/"
+to = "/products/body-lotion-limited-edition-500ml-holiday-2021/"
+status = 301
+force = true
+query = { p = "7343" }
+
+[[redirects]]
+from = "/"
+to = "/about/"
+status = 301
+force = true
+query = { p = "742" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-concentrate-smoothing-lotion-50ml/"
+status = 301
+force = true
+query = { p = "7423" }
+
+[[redirects]]
+from = "/"
+to = "/products/all-in-one-toning-cleanser/"
+status = 301
+force = true
+query = { p = "76" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-nutri-action-cream-50ml/"
+status = 301
+force = true
+query = { p = "7704" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-elasticity-serum-30ml/"
+status = 301
+force = true
+query = { p = "7706" }
+
+[[redirects]]
+from = "/"
+to = "/privacy/"
+status = 301
+force = true
+query = { p = "7772" }
+
+[[redirects]]
+from = "/"
+to = "/products/halobacteria-restoring-overnight-mask/"
+status = 301
+force = true
+query = { p = "7895" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-c-firming-serum/"
+status = 301
+force = true
+query = { p = "7901" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-day-cream-spf30-50ml/"
+status = 301
+force = true
+query = { p = "7905" }
+
+[[redirects]]
+from = "/"
+to = "/products/multivitamin-firming-massage-mask/"
+status = 301
+force = true
+query = { p = "7909" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-of-sodom-advanced-smoothing-serum-30ml/"
+status = 301
+force = true
+query = { p = "7972" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-of-sodom-advanced-smoothing-eye-cream-15ml/"
+status = 301
+force = true
+query = { p = "7977" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-body-lotion-250ml/"
+status = 301
+force = true
+query = { p = "7978" }
+
+[[redirects]]
+from = "/"
+to = "/products/vivid-burgundy-mineral-hand-cream-100ml/"
+status = 301
+force = true
+query = { p = "7982" }
+
+[[redirects]]
+from = "/"
+to = "/products/dermud-replenishing-body-wash-400ml/"
+status = 301
+force = true
+query = { p = "7983" }
+
+[[redirects]]
+from = "/"
+to = "/contact/"
+status = 301
+force = true
+query = { p = "801" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-moisture-active-gel-cream-50ml/"
+status = 301
+force = true
+query = { p = "8198" }
+
+[[redirects]]
+from = "/"
+to = "/products/protecting-body-lotion-spf30-150ml/"
+status = 301
+force = true
+query = { p = "8253" }
+
+[[redirects]]
+from = "/"
+to = "/products/protecting-moisturizing-lotion-spf50-50ml/"
+status = 301
+force = true
+query = { p = "8351" }
+
+[[redirects]]
+from = "/"
+to = "/products/hydrating-styling-cream-200ml/"
+status = 301
+force = true
+query = { p = "8401" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-eye-night-cream-15ml/"
+status = 301
+force = true
+query = { p = "8404" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-correcting-gel-cream-50ml/"
+status = 301
+force = true
+query = { p = "8476" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-correcting-serum-30ml/"
+status = 301
+force = true
+query = { p = "8483" }
+
+[[redirects]]
+from = "/"
+to = "/products/detox-cleansing-gel-100ml/"
+status = 301
+force = true
+query = { p = "8488" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-skin-responsive-night-cream-50ml/"
+status = 301
+force = true
+query = { p = "8515" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-day-cream-50ml/"
+status = 301
+force = true
+query = { p = "8551" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-night-cream-50ml/"
+status = 301
+force = true
+query = { p = "8554" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-facial-serum-30ml/"
+status = 301
+force = true
+query = { p = "8557" }
+
+[[redirects]]
+from = "/"
+to = "/synergasia/"
+status = 301
+force = true
+query = { p = "8568" }
+
+[[redirects]]
+from = "/"
+to = "/products/dare-to-glow/"
+status = 301
+force = true
+query = { p = "8850" }
+
+[[redirects]]
+from = "/"
+to = "/products/apple-y-ever-after/"
+status = 301
+force = true
+query = { p = "8854" }
+
+[[redirects]]
+from = "/"
+to = "/products/osmoter-love/"
+status = 301
+force = true
+query = { p = "8856" }
+
+[[redirects]]
+from = "/"
+to = "/products/extraordinary-you/"
+status = 301
+force = true
+query = { p = "8858" }
+
+[[redirects]]
+from = "/"
+to = "/products/lifting-trilogy/"
+status = 301
+force = true
+query = { p = "8860" }
+
+[[redirects]]
+from = "/"
+to = "/products/mineral-botanic-duo-set/"
+status = 301
+force = true
+query = { p = "8863" }
+
+[[redirects]]
+from = "/"
+to = "/products/sea-kissed-duo-set/"
+status = 301
+force = true
+query = { p = "8865" }
+
+[[redirects]]
+from = "/"
+to = "/products/diamond-glow-refining-eye-care-15ml/"
+status = 301
+force = true
+query = { p = "8898" }
+
+[[redirects]]
+from = "/"
+to = "/products/hyaluronic-acid-eye-cream-15ml/"
+status = 301
+force = true
+query = { p = "8901" }
+
+[[redirects]]
+from = "/"
+to = "/products/niacinamide-even-tone-body-balm-220ml/"
+status = 301
+force = true
+query = { p = "8904" }
+
+[[redirects]]
+from = "/"
+to = "/products/bath-salt-eucalyptus-jar-907g/"
+status = 301
+force = true
+query = { p = "8907" }
+
+[[redirects]]
+from = "/"
+to = "/products/bath-salt-lavender-jar-907g/"
+status = 301
+force = true
+query = { p = "8909" }
+
+[[redirects]]
+from = "/"
+to = "/products/facial-skin-shield-spf-50-pa/"
+status = 301
+force = true
+query = { p = "8990" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-promo-pack-cream/"
+status = 301
+force = true
+query = { p = "9019" }
+
+[[redirects]]
+from = "/"
+to = "/products/dark-spot-promo-pack-serum/"
+status = 301
+force = true
+query = { p = "9022" }
+
+[[redirects]]
+from = "/"
+to = "/products/glossing-lip-oil-6ml/"
+status = 301
+force = true
+query = { p = "9079" }
+
+[[redirects]]
+from = "/"
+to = "/products/peptide-smoothing-body-balm-220ml/"
+status = 301
+force = true
+query = { p = "9269" }
+
+[[redirects]]
+from = "/"
+to = "/products/dead-sea-crystal-osmoter-x6-facial-serum/"
+status = 301
+force = true
+query = { p = "96" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "a-zanni-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "aloe-maria-trakkoudi-kyprianou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "am-resort-pharmacy-kouklia-ltd" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "andreas-koupepas-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "andri-kinni-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "anna-demetriou-koulouma" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "anna-erotokritou-pharamcy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "anna-maria-kyriazou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "antonis-gregoras-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "bwell-agios-athanasios-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "bwell-mouttagiaka-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "bwell-parekklisia-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "bwell-trimiklini-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "charis-georgiou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "charis-lymbouras-pharmacy-φαρμακείο-χαράλαμπος-λύμπουρας-2" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "christina-metaxa-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "christina-papageorgiou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "christoforou-paris-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "christos-savva-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "chryssi-charalambous-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "clio-hadjiyianni-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "constantinos-hadjiathanasiou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "cs-konia-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "despo-antoniou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "dina-aristodemou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "ea-pastellidou-pharmacy-ltd" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "elena-chrysostomou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "eleni-epaminonda-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "eleon-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "elina-tsielepi-pharmacy-φαρμακείο-ελίνα-τσιελεπή" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "emily-pantela-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "eracleous-charalambos-olga-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "eva-frangouli-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "froso-yiangou-pharmacy-φαρμακείο-φρόσω-γιαγκου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "fuse-pharmacies-yermasogia-stylianos-houvartas" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "george-georgiou-pharmacy-γιώργος-γεωργίου-φαρμακείο" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "georgia-lambrou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "iakovina-papatheodoulou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kd-the-chemists-φαρμακείο-δώρα-κλέοπας" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "ke-pharmacy-φαρμακείο-εμμανουήλ-καλλασίδης" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kouratos-george-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kristina-saribekova-pharmacy-2" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kyprianou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kyriacos-chrysanthou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kyriaki-panayiotou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "kyriakoudes-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "life-pharmacy-irene-ellina" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "liza-victoria-varelias-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "maria-panagi-pharmacy-φαρμακείο-μαρία-παναγή-2" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "maria-theofanous-giatagana-meds2you-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "marina-neophytou-pharmacy-2" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "marios-severis-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "marios-theodoulou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "melina-nikiforou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "menelaos-menelaou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "nantia-tipografou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "nicolas-kyriakoudes-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pa-ni-el" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pampina-antoniou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "peters-pharmacy-latsia" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "petros-vasileiou-pharmacy-ltd" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-andria-neocleous" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-charitini-kyrou-ltd" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-christalla-katerina-ch-yiangou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-christiana-papadopoulou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-christoulla-roti" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-chrystala-kourtelou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-eleni-michael" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-ioanna-vasileiou-φαρμακείο-ιωάννα-βασιλείου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-karmelia-tornariti" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-maria-chrysanthou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-maria-taliotou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-marina-lefteridi" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-stanislava-georgiou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-tania-argyrou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmacy-vassilis-nikolaou" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pharmaσυν-πάφου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "pitsa-malikkidou-lito-karaolidou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "rena-tsangari-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "roots-pharmacy-stavrinidou-zoe" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "skevi-polatoglou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "socratous-socratis-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "sofia-papanastasiou-pharmacy-φαρμακείο-σοφία-παπαναστασίου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "sofoklis-pirpas-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "stalo-ioannidou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "stefanos-papageorgiou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "sylia-hadjivasili-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "tania-argyrou-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "tasos-aspros-pharmacy" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "νικη-χριστοφη-φ-κειο" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "σταυρουλλα-γιαννιου-φαρμακειο" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-έλενα-σολομωνίδου-νικόλα" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-α-κ-πόντου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-ανδρέας-χριστοφόρου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-αντώνης-χατζηαποστόλου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-γεώργιος-χατζηκυριάκος" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-κατερίνα-καγιά" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-κλεοπάτρα-κτενά" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-μαρία-κανάρη" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακείο-χριστίνα-πυλα-σμυρίλλη-pharmacy-christina-p" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακειο-δεσπω-θεοφανουσ" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακειο-ελενα-παπαλλη" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακειο-ιωαννα-στυλιανου" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "φαρμακειο-μαριαννα-ζαϊμη" }
+
+[[redirects]]
+from = "/"
+to = "/where-to-buy/"
+status = 301
+force = true
+query = { wpsl_stores = "χρυσάνθη-μαλλιώτη" }

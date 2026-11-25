@@ -1,0 +1,321 @@
+---
+import { facetsFor, SITE_NAME } from '../data/nav.js';
+import site from '../data/site.json';
+import '../styles/global.css';
+
+interface Crumb { name: string; href: string }
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  crumbs?: Crumb[];
+  overlay?: boolean;
+  jsonld?: Record<string, unknown>[];
+}
+
+const { title, description, image, crumbs, overlay = false, jsonld: extra = [] } = Astro.props;
+const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image || '/og-default.jpg', Astro.site).href;
+const c = site.contact;
+const I = site.home_imgs;
+const path = Astro.url.pathname;
+
+const menus = [
+  { key: 'prosopo', label: 'Πρόσωπο', all: 'Όλη η φροντίδα προσώπου', f: facetsFor('prosopo'), img: I.face, imgLabel: 'Φροντίδα Προσώπου' },
+  { key: 'soma', label: 'Σώμα', all: 'Όλη η περιποίηση σώματος', f: facetsFor('soma'), img: I.body, imgLabel: 'Περιποίηση Σώματος' },
+];
+const links = [
+  { href: '/apple-of-sodom/', label: 'Apple of Sodom' },
+  { href: '/about/', label: 'Η AHAVA' },
+  { href: '/where-to-buy/', label: 'Σημεία πώλησης' },
+  { href: '/synergasia/', label: 'Για φαρμακεία' },
+  { href: '/contact/', label: 'Επικοινωνία' },
+];
+const ticker = [
+  `Επίσημη αντιπροσωπεία στην Κύπρο · ${c.company}`,
+  'Χωρίς parabens · Vegan · Δερματολογικά ελεγμένο για το ευαίσθητο δέρμα',
+  `Τα προϊόντα AHAVA διατίθενται σε ${site.locations.length} φαρμακεία σε όλη την Κύπρο`,
+];
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'AHAVA Cyprus – ' + (c.company_en || c.company),
+  url: 'https://ahavacy.com/',
+  logo: new URL('/brand/ahava-logo.webp', Astro.site).href,
+  email: c.email,
+  telephone: c.tel,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Αγίου Νικολάου 8',
+    postalCode: '1055',
+    addressLocality: 'Λευκωσία',
+    addressCountry: 'CY',
+  },
+};
+const blocks: Record<string, unknown>[] = [org];
+if (crumbs?.length) {
+  blocks.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ name: 'Αρχική', href: '/' }, ...crumbs].map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      item: new URL(b.href, Astro.site).href,
+    })),
+  });
+}
+blocks.push(...extra);
+
+const pin = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>';
+const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16.5 20.5 21"/></svg>';
+---
+<!doctype html>
+<html lang="el" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{fullTitle}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<meta property="og:locale" content="el_GR">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content={SITE_NAME}>
+<meta property="og:title" content={fullTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="icon" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-greek-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script is:inline>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js')</script>
+<slot name="head" />
+<script type="application/ld+json" set:html={JSON.stringify(blocks)} />
+</head>
+<body class={overlay ? 'has-hero' : ''}>
+<a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
+<header class="site-header" id="hdr">
+  <div class="announce" data-announce>
+    {ticker.map((t, i) => <p hidden={i !== 0}>{t}</p>)}
+  </div>
+  <div class="nav-row">
+    <button class="icon-btn burger-btn" type="button" id="menu-open" aria-controls="drawer" aria-expanded="false">
+      <span class="burger" aria-hidden="true"></span><span class="sr">Άνοιγμα μενού</span>
+    </button>
+    <a class="logo" href="/" aria-label="AHAVA CY® – Αρχική"><img src="/brand/ahava-logo.webp" width="150" height="150" alt="AHAVA CY®"></a>
+    <nav class="desk-nav" aria-label="Κύριο μενού">
+      <ul>
+        {menus.map((m) => (
+          <li class="has-mega">
+            <button type="button" aria-expanded="false" aria-haspopup="true">{m.label}</button>
+            <div class="mega">
+              <div class={`mega-in${m.f.length === 2 ? ' two' : ''}`}>
+                {m.f.map((g) => (
+                  <div>
+                    <h3>{g.facet}</h3>
+                    <ul class:list={['mega-links', { cols: g.items.length > 12 }]}>
+                      {g.items.map((it) => <li><a href={`/category/${it.slug}/`}>{it.name}</a></li>)}
+                    </ul>
+                  </div>
+                ))}
+                <div>
+                  <h3>Ανακαλύψτε</h3>
+                  <ul class="mega-links">
+                    <li><a href={`/category/${m.key}/`}>{m.all}</a></li>
+                    <li><a href="/products/">Όλα τα προϊόντα</a></li>
+                    <li><a href="/where-to-buy/">Σημεία πώλησης</a></li>
+                  </ul>
+                </div>
+                <a class="mega-card" href={`/category/${m.key}/`}>
+                  <span class="tile-169 tile-contain"><img src={m.img.src} srcset={m.img.srcset} sizes="280px" width={m.img.w} height={m.img.h} alt={m.imgLabel} loading="lazy" decoding="async"></span>
+                  <span>{m.all}</span>
+                </a>
+              </div>
+            </div>
+          </li>
+        ))}
+        {links.map((l) => <li><a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="hdr-right">
+      <button class="icon-btn" type="button" id="search-open" aria-haspopup="dialog" aria-controls="search-dialog"><Fragment set:html={searchIcon} /><span class="sr">Αναζήτηση</span></button>
+      <a class="icon-btn" href="/where-to-buy/"><Fragment set:html={pin} /><span class="txt">Σημεία πώλησης</span><span class="sr">Σημεία πώλησης</span></a>
+    </div>
+  </div>
+</header>
+
+<dialog class="search-dialog" id="search-dialog" aria-labelledby="search-title">
+  <div class="search-card">
+    <h2 id="search-title">Αναζήτηση προϊόντων</h2>
+    <form method="get" action="/products/">
+      <label class="sr" for="q">Προϊόν ή σειρά</label>
+      <input class="field" id="q" name="q" type="search" placeholder="Όνομα προϊόντος ή σειράς" autocomplete="off">
+      <button class="btn" type="submit">Αναζήτηση</button>
+      <button class="btn btn-line" type="button" data-close-search>Κλείσιμο</button>
+    </form>
+  </div>
+</dialog>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-scrim" data-close></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Μενού">
+    <div class="drawer-top">
+      <img src="/brand/ahava-logo.webp" width="150" height="150" alt="AHAVA CY®">
+      <button class="close-x" type="button" data-close aria-label="Κλείσιμο μενού">×</button>
+    </div>
+    <nav aria-label="Μενού κινητού">
+      {menus.map((m) => (
+        <details>
+          <summary>{m.label}</summary>
+          <div class="d-group">
+            <a href={`/category/${m.key}/`}>{m.all}</a>
+            {m.f.map((g) => (
+              <>
+                <h3>{g.facet}</h3>
+                <ul>{g.items.map((it) => <li><a href={`/category/${it.slug}/`}>{it.name}</a></li>)}</ul>
+              </>
+            ))}
+          </div>
+        </details>
+      ))}
+      <a class="d-link" href="/products/">Όλα τα προϊόντα</a>
+      {links.map((l) => <a class="d-link" href={l.href}>{l.label}</a>)}
+      <a class="d-small" href="/videos/">Videos</a>
+      <a class="d-small" href="/privacy/">Πολιτική απορρήτου</a>
+    </nav>
+    <div class="d-foot">
+      <p><strong>{c.company}</strong></p>
+      <p>Τηλέφωνο: <a href={`tel:${c.tel}`}>{c.phone_display}</a><br>Email: <a href={`mailto:${c.email}`}>{c.email}</a></p>
+    </div>
+  </div>
+</div>
+
+{!overlay && crumbs?.length ? (
+  <nav class="wrap crumbs" aria-label="Διαδρομή">
+    <ol>
+      <li><a href="/">Αρχική</a></li>
+      {crumbs.map((b, i) => <li>{i === crumbs.length - 1 ? <span aria-current="page">{b.name}</span> : <a href={b.href}>{b.name}</a>}</li>)}
+    </ol>
+  </nav>
+) : null}
+
+<main id="main"><slot /></main>
+
+<footer class="site-footer">
+  <div class="wrap fgrid">
+    <div>
+      <h2>{c.role_label}</h2>
+      {c.logo && <a href={c.web} rel="noopener noreferrer"><img class="msj" src={c.logo} width="220" height="45" alt={c.company_en} loading="lazy"></a>}
+      <p><strong>{c.company}</strong></p>
+      {c.member_of && <p>{c.member_of}</p>}
+      <p>{c.address}{c.po_box ? `, ${c.po_box}` : ''}</p>
+      <p>Τηλέφωνο: <a href={`tel:${c.tel}`}>{c.phone_display}</a></p>
+      {c.fax_display && <p>Φαξ: {c.fax_display}</p>}
+      <p>Email: <a href={`mailto:${c.email}`}>{c.email}</a></p>
+    </div>
+    <div>
+      <h2>Προϊόντα</h2>
+      <ul>
+        <li><a href="/category/prosopo/">Φροντίδα Προσώπου</a></li>
+        <li><a href="/category/soma/">Περιποίηση Σώματος</a></li>
+        <li><a href="/category/for-him/">FOR HIM</a></li>
+        <li><a href="/category/paketa-kits/">Πακέτα</a></li>
+        <li><a href="/apple-of-sodom/">Apple of Sodom</a></li>
+        <li><a href="/products/">Όλα τα προϊόντα</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Η AHAVA</h2>
+      <ul>
+        <li><a href="/about/">Μάθε για την AHAVA</a></li>
+        <li><a href="/videos/">Videos</a></li>
+        <li><a href="/where-to-buy/">Σημεία πώλησης</a></li>
+        <li><a href="/synergasia/">Για φαρμακεία</a></li>
+        <li><a href="/contact/">Επικοινωνία</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Ακολουθήστε μας</h2>
+      <ul>
+        {site.socials.map((s) => <li><a href={s} rel="noopener noreferrer">{s.includes('facebook') ? 'Facebook' : s.includes('instagram') ? 'Instagram' : 'TikTok'}</a></li>)}
+      </ul>
+      <h2 style="margin-top:28px">Νομικά</h2>
+      <ul><li><a href="/privacy/">Πολιτική απορρήτου</a></li></ul>
+    </div>
+  </div>
+  <div class="wrap fbar"><span>© {new Date().getFullYear()} AHAVA</span><span>{c.company}</span></div>
+</footer>
+
+<script is:inline>
+(function () {
+  var h = document.getElementById('hdr');
+  function setH() { document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px'); }
+  function sc() {
+    var solid = !document.body.classList.contains('has-hero') || window.scrollY > 12;
+    h.classList.toggle('is-solid', solid);
+  }
+  setH(); sc();
+  addEventListener('scroll', sc, { passive: true });
+  addEventListener('resize', setH);
+
+  var box = document.querySelector('[data-announce]');
+  var lines = [].slice.call(box.querySelectorAll('p'));
+  var ai = 0;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && lines.length > 1) {
+    setInterval(function () {
+      lines[ai].hidden = true;
+      ai = (ai + 1) % lines.length;
+      lines[ai].hidden = false;
+    }, 4200);
+  }
+
+  var d = document.getElementById('drawer');
+  var ob = document.getElementById('menu-open');
+  function op(o) {
+    d.classList.toggle('open', o);
+    d.setAttribute('aria-hidden', String(!o));
+    ob.setAttribute('aria-expanded', String(o));
+    document.body.classList.toggle('lock', o);
+    if (o) d.querySelector('.close-x').focus();
+    else ob.focus();
+  }
+  ob.addEventListener('click', function () { op(true); });
+  d.addEventListener('click', function (e) { if (e.target.closest('[data-close]')) op(false); });
+
+  document.querySelectorAll('.has-mega > button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var li = b.parentNode;
+      var o = !li.classList.contains('open');
+      document.querySelectorAll('.has-mega.open').forEach(function (x) { x.classList.remove('open'); x.querySelector('button').setAttribute('aria-expanded', 'false'); });
+      li.classList.toggle('open', o);
+      b.setAttribute('aria-expanded', String(o));
+    });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.has-mega')) {
+      document.querySelectorAll('.has-mega.open').forEach(function (x) { x.classList.remove('open'); x.querySelector('button').setAttribute('aria-expanded', 'false'); });
+    }
+  });
+
+  var dlg = document.getElementById('search-dialog');
+  document.getElementById('search-open').addEventListener('click', function () { dlg.showModal(); dlg.querySelector('input').focus(); });
+  dlg.querySelector('[data-close-search]').addEventListener('click', function () { dlg.close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      if (d.classList.contains('open')) op(false);
+      document.querySelectorAll('.has-mega.open').forEach(function (x) { x.classList.remove('open'); });
+    }
+  });
+})();
+</script>
+</body>
+</html>
