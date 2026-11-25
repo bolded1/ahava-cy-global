@@ -332,10 +332,21 @@ const c = site.contact;
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="social">
     <div class="wrap">
-      <p class="eyebrow">Ακολουθήστε μας</p>
-      <SocialList links={site.socials} large />
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">AHAVA</p>
+          <h2>Ακολουθήστε μας</h2>
+          <p class="lead" style="margin-top:18px">Facebook, Instagram και TikTok.</p>
+        </div>
+      </div>
+      <SocialList
+        links={site.socials}
+        variant="cards"
+        images={[I.aosScene, I.aosSalt, I.mud]}
+        mosaic={[I.sea, I.aosPlant, I.hero, I.story, I.texture, I.youth]}
+      />
     </div>
   </section>
 

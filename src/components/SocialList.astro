@@ -1,8 +1,15 @@
 ---
-interface Props { links: string[]; large?: boolean }
-const { links, large = false } = Astro.props;
+interface Img { src: string; srcset?: string; w?: number; h?: number; alt?: string }
+interface Props {
+  links: string[];
+  variant?: 'cards' | 'row';
+  images?: Img[];
+  mosaic?: Img[];
+  onDark?: boolean;
+}
+const { links, variant = 'row', images = [], mosaic = [], onDark = false } = Astro.props;
 
-function meta(url: string) {
+function nameOf(url: string) {
   const u = url.toLowerCase();
   if (u.includes('facebook')) return 'Facebook';
   if (u.includes('instagram')) return 'Instagram';
@@ -10,28 +17,71 @@ function meta(url: string) {
   if (u.includes('youtube') || u.includes('youtu.be')) return 'YouTube';
   return 'Σύνδεσμος';
 }
+function handleOf(url: string) {
+  try {
+    const parts = new URL(url).pathname.split('/').filter(Boolean);
+    return parts[parts.length - 1] || url;
+  } catch {
+    return url;
+  }
+}
+const icons: Record<string, string> = {
+  Facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 8.5V6.8c0-.5.3-.8.8-.8H17V3.5h-2.4C12.2 3.5 11 4.9 11 7.1v1.4H8.8V11H11v9.5h3.2V11h2.4l.5-2.5h-2.9z"/></svg>',
+  Instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7.4A4.6 4.6 0 1 0 16.6 12 4.6 4.6 0 0 0 12 7.4zm0 7.6A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm5.9-8.8a1.08 1.08 0 1 1-1.08-1.08A1.08 1.08 0 0 1 17.9 6.2zM12 4.6c1.5 0 1.7 0 2.3.1a3.7 3.7 0 0 1 2.4 1 3.7 3.7 0 0 1 1 2.4c.05.6.1.8.1 2.3s0 1.7-.1 2.3a3.7 3.7 0 0 1-1 2.4 3.7 3.7 0 0 1-2.4 1c-.6.05-.8.1-2.3.1s-1.7 0-2.3-.1a3.7 3.7 0 0 1-2.4-1 3.7 3.7 0 0 1-1-2.4c-.05-.6-.1-.8-.1-2.3s0-1.7.1-2.3a3.7 3.7 0 0 1 1-2.4 3.7 3.7 0 0 1 2.4-1c.6-.05.8-.1 2.3-.1m0-1.6c-1.5 0-1.7 0-2.4.1a5.3 5.3 0 0 0-3.5 1.4 5.3 5.3 0 0 0-1.4 3.5c-.1.7-.1.9-.1 2.4s0 1.7.1 2.4a5.3 5.3 0 0 0 1.4 3.5 5.3 5.3 0 0 0 3.5 1.4c.7.1.9.1 2.4.1s1.7 0 2.4-.1a5.3 5.3 0 0 0 3.5-1.4 5.3 5.3 0 0 0 1.4-3.5c.1-.7.1-.9.1-2.4s0-1.7-.1-2.4a5.3 5.3 0 0 0-1.4-3.5 5.3 5.3 0 0 0-3.5-1.4c-.7-.1-.9-.1-2.4-.1z"/></svg>',
+  TikTok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3.2v11.1a3.15 3.15 0 1 1-2.7-3.1V8.6a5.7 5.7 0 0 0-.8-.1 5.85 5.85 0 1 0 5.85 5.85V8.4a7.4 7.4 0 0 0 4.35 1.4V7.2a4.4 4.4 0 0 1-2.7-.9 4.5 4.5 0 0 1-1.7-3.1h-2.3z"/></svg>',
+  YouTube: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12.2s0-3.2-.4-4.6a3 3 0 0 0-2.1-2.1C17.9 5 12 5 12 5s-5.9 0-7.5.5a3 3 0 0 0-2.1 2.1C2 9 2 12.2 2 12.2s0 3.2.4 4.6a3 3 0 0 0 2.1 2.1c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2.1-2.1c.4-1.4.4-4.6.4-4.6zM10 15.5v-6.6l5.2 3.3z"/></svg>',
+};
+const items = links.map((href, i) => ({
+  href,
+  name: nameOf(href),
+  handle: handleOf(href),
+  image: images[i] || images[i % Math.max(images.length, 1)],
+}));
 ---
-<ul class:list={['socials', { 'socials-lg': large }]}>
-  {links.map((href) => {
-    const name = meta(href);
-    return (
+{variant === 'cards' ? (
+  <div class:list={['social-cards', { 'on-dark': onDark }]}>
+    <ul class="soc-grid">
+      {items.map((item) => (
+        <li>
+          <a class="soc-card" href={item.href} rel="noopener noreferrer" aria-label={`${item.name}, ${item.handle}`}>
+            {item.image && (
+              <span class="soc-photo">
+                <img src={item.image.src} srcset={item.image.srcset} sizes="(max-width: 768px) 100vw, 30vw" width={item.image.w} height={item.image.h} alt={item.image.alt || ''} loading="lazy" decoding="async">
+              </span>
+            )}
+            <span class="soc-meta">
+              <span class="soc-bubble"><Fragment set:html={icons[item.name] || ''} /></span>
+              <span>
+                <span class="soc-name">{item.name}</span>
+                <span class="soc-handle">{item.handle}</span>
+              </span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    {mosaic.length > 0 && (
+      <ul class="soc-mosaic">
+        {mosaic.map((img) => (
+          <li>
+            <img src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 33vw, 16vw" width={img.w} height={img.h} alt={img.alt || ''} loading="lazy" decoding="async">
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+) : (
+  <ul class:list={['socials-row', { 'on-dark': onDark }]}>
+    {items.map((item) => (
       <li>
-        <a href={href} rel="noopener noreferrer" aria-label={name}>
-          {name === 'Facebook' && (
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 8.5V6.8c0-.5.3-.8.8-.8H17V3.5h-2.4C12.2 3.5 11 4.9 11 7.1v1.4H8.8V11H11v9.5h3.2V11h2.4l.5-2.5h-2.9z"/></svg>
-          )}
-          {name === 'Instagram' && (
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7.4A4.6 4.6 0 1 0 16.6 12 4.6 4.6 0 0 0 12 7.4zm0 7.6A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm5.9-8.8a1.08 1.08 0 1 1-1.08-1.08A1.08 1.08 0 0 1 17.9 6.2zM12 4.6c1.5 0 1.7 0 2.3.1a3.7 3.7 0 0 1 2.4 1 3.7 3.7 0 0 1 1 2.4c.05.6.1.8.1 2.3s0 1.7-.1 2.3a3.7 3.7 0 0 1-1 2.4 3.7 3.7 0 0 1-2.4 1c-.6.05-.8.1-2.3.1s-1.7 0-2.3-.1a3.7 3.7 0 0 1-2.4-1 3.7 3.7 0 0 1-1-2.4c-.05-.6-.1-.8-.1-2.3s0-1.7.1-2.3a3.7 3.7 0 0 1 1-2.4 3.7 3.7 0 0 1 2.4-1c.6-.05.8-.1 2.3-.1m0-1.6c-1.5 0-1.7 0-2.4.1a5.3 5.3 0 0 0-3.5 1.4 5.3 5.3 0 0 0-1.4 3.5c-.1.7-.1.9-.1 2.4s0 1.7.1 2.4a5.3 5.3 0 0 0 1.4 3.5 5.3 5.3 0 0 0 3.5 1.4c.7.1.9.1 2.4.1s1.7 0 2.4-.1a5.3 5.3 0 0 0 3.5-1.4 5.3 5.3 0 0 0 1.4-3.5c.1-.7.1-.9.1-2.4s0-1.7-.1-2.4a5.3 5.3 0 0 0-1.4-3.5 5.3 5.3 0 0 0-3.5-1.4c-.7-.1-.9-.1-2.4-.1z"/></svg>
-          )}
-          {name === 'TikTok' && (
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.2 3.2v11.1a3.15 3.15 0 1 1-2.7-3.1V8.6a5.7 5.7 0 0 0-.8-.1 5.85 5.85 0 1 0 5.85 5.85V8.4a7.4 7.4 0 0 0 4.35 1.4V7.2a4.4 4.4 0 0 1-2.7-.9 4.5 4.5 0 0 1-1.7-3.1h-2.3z"/></svg>
-          )}
-          {name === 'YouTube' && (
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12.2s0-3.2-.4-4.6a3 3 0 0 0-2.1-2.1C17.9 5 12 5 12 5s-5.9 0-7.5.5a3 3 0 0 0-2.1 2.1C2 9 2 12.2 2 12.2s0 3.2.4 4.6a3 3 0 0 0 2.1 2.1c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2.1-2.1c.4-1.4.4-4.6.4-4.6zM10 15.5v-6.6l5.2 3.3z"/></svg>
-          )}
-          <span>{name}</span>
+        <a href={item.href} rel="noopener noreferrer" aria-label={`${item.name}, ${item.handle}`}>
+          <span class="soc-bubble"><Fragment set:html={icons[item.name] || ''} /></span>
+          <span>
+            <span class="soc-name">{item.name}</span>
+            <span class="soc-handle">{item.handle}</span>
+          </span>
         </a>
       </li>
-    );
-  })}
-</ul>
+    ))}
+  </ul>
+)}
