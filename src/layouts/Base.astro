@@ -43,7 +43,7 @@ const org = {
   '@type': 'Organization',
   name: 'AHAVA Cyprus – ' + (c.company_en || c.company),
   url: 'https://ahavacy.com/',
-  logo: new URL('/brand/ahava-logo.webp', Astro.site).href,
+  logo: new URL('/brand/ahava-logo.png', Astro.site).href,
   email: c.email,
   telephone: c.tel,
   address: {
@@ -109,7 +109,7 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
     <button class="icon-btn burger-btn" type="button" id="menu-open" aria-controls="drawer" aria-expanded="false">
       <span class="burger" aria-hidden="true"></span><span class="sr">Άνοιγμα μενού</span>
     </button>
-    <a class="logo" href="/" aria-label="AHAVA CY® – Αρχική"><img src="/brand/ahava-logo.webp" width="150" height="150" alt="AHAVA CY®"></a>
+    <a class="logo" href="/" aria-label="AHAVA CY® – Αρχική"><img src="/brand/ahava-logo.png" width="150" height="150" alt="AHAVA CY®"></a>
     <nav class="desk-nav" aria-label="Κύριο μενού">
       <ul>
         {menus.map((m) => (
@@ -134,7 +134,7 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
                   </ul>
                 </div>
                 <a class="mega-card" href={`/category/${m.key}/`}>
-                  <span class="tile-169 tile-contain"><img src={m.img.src} srcset={m.img.srcset} sizes="280px" width={m.img.w} height={m.img.h} alt={m.imgLabel} loading="lazy" decoding="async"></span>
+                  <img class="pack" src={m.img.src} srcset={m.img.srcset} sizes="280px" width={m.img.w} height={m.img.h} alt={m.imgLabel} loading="lazy" decoding="async">
                   <span>{m.all}</span>
                 </a>
               </div>
@@ -167,7 +167,7 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
   <div class="drawer-scrim" data-close></div>
   <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Μενού">
     <div class="drawer-top">
-      <img src="/brand/ahava-logo.webp" width="150" height="150" alt="AHAVA CY®">
+      <img src="/brand/ahava-logo.png" width="150" height="150" alt="AHAVA CY®">
       <button class="close-x" type="button" data-close aria-label="Κλείσιμο μενού">×</button>
     </div>
     <nav aria-label="Μενού κινητού">
@@ -209,6 +209,9 @@ const searchIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 <main id="main"><slot /></main>
 
 <footer class="site-footer">
+  <div class="wrap foot-brand">
+    <img src="/brand/ahava-logo-light.png" width="150" height="150" alt="AHAVA">
+  </div>
   <div class="wrap fgrid">
     <div>
       <h2>{c.role_label}</h2>

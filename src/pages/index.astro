@@ -110,7 +110,7 @@ const c = site.contact;
       </div>
       <div class="duo">
         <a href="/category/prosopo/">
-          <span class="tile-169 tile-contain"><Img img={I.face} sizes="(max-width: 768px) 100vw, 50vw" alt={I.face.alt} /></span>
+          <Img class="pack" img={I.face} sizes="(max-width: 768px) 100vw, 50vw" alt={I.face.alt} />
           <div>
             <p class="eyebrow">Φροντίδα Προσώπου</p>
             <h3>Πρόσωπο</h3>
@@ -119,7 +119,7 @@ const c = site.contact;
           </div>
         </a>
         <a href="/category/soma/">
-          <span class="tile-169 tile-contain"><Img img={I.body} sizes="(max-width: 768px) 100vw, 50vw" alt={I.body.alt} /></span>
+          <Img class="pack" img={I.body} sizes="(max-width: 768px) 100vw, 50vw" alt={I.body.alt} />
           <div>
             <p class="eyebrow">Περιποίηση Σώματος</p>
             <h3>Σώμα</h3>
@@ -169,7 +169,7 @@ const c = site.contact;
           return (
             <li>
               <a class="concern" href={`/category/${c.slug}/`}>
-                <span class="tile-169 tile-contain">{img && <img src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 50vw, 25vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}</span>
+                {img && <img class="pack" src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 50vw, 25vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}
                 <strong>{c.name}</strong>
                 <small>{c.products.length} προϊόντα</small>
               </a>
@@ -240,7 +240,7 @@ const c = site.contact;
           return (
             <li>
               <a class="sig" href={`/category/${cat.slug}/`}>
-                <span class="tile-169 tile-contain">{img && <img src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 50vw, 25vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}</span>
+                {img && <img class="pack" src={img.src} srcset={img.srcset} sizes="(max-width: 768px) 50vw, 25vw" width={img.w} height={img.h} alt="" loading="lazy" decoding="async">}
                 <strong>{cat.name}</strong>
                 <small>{cat.products.length} προϊόντα</small>
               </a>
@@ -277,7 +277,7 @@ const c = site.contact;
   )}
 
   {kits.length > 0 && (
-    <section class="sec band">
+    <section class="sec">
       <div class="wrap">
         <div class="sec-head">
           <div>
