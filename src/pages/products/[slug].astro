@@ -43,7 +43,7 @@ const productLd = {
       <div class="gal-main" id="gal" tabindex="0" aria-label={`Φωτογραφίες: ${p.name}`}>
         {p.images.map((im, i) => (
           <figure>
-            <img src={im.src} srcset={im.srcset} sizes="(max-width: 1024px) 100vw, 640px" width={im.w} height={im.h} alt={p.images.length > 1 ? `${p.name} – φωτογραφία ${i + 1}` : p.name} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async">
+            <img src={im.src} srcset={im.srcset} sizes="(max-width: 1024px) 100vw, 520px" width={im.w} height={im.h} alt={p.images.length > 1 ? `${p.name} – φωτογραφία ${i + 1}` : p.name} loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async">
           </figure>
         ))}
       </div>
@@ -70,8 +70,8 @@ const productLd = {
         <h2>Πού να το βρείτε</h2>
         <p>Ζητήστε το από το φαρμακοποιό σας ή βρείτε το φαρμακείο AHAVA που είναι πιο κοντά σας.</p>
         <div class="actions">
-          <a class="btn btn-light" href="/where-to-buy/">Σημεία πώλησης</a>
-          <a class="btn btn-ghost" href="/contact/">Επικοινωνία</a>
+          <a class="btn" href="/where-to-buy/">Σημεία πώλησης</a>
+          <a class="btn btn-line" href="/contact/">Επικοινωνία</a>
         </div>
       </div>
       {facetCats.length > 0 && (

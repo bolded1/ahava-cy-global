@@ -109,24 +109,24 @@ const c = site.contact;
         </div>
         <a class="text-link" href="/products/">Όλα τα προϊόντα</a>
       </div>
-      <div class="duo">
-        <a href="/category/prosopo/">
-          <Img class="pack" img={I.face} sizes="(max-width: 768px) 100vw, 50vw" alt={I.face.alt} />
-          <div>
-            <p class="eyebrow">Φροντίδα Προσώπου</p>
-            <h3>Πρόσωπο</h3>
-            <p>Ενεργοποίησε το δέρμα σου από μέσα.</p>
-            <span class="text-link">Δείτε τα προϊόντα</span>
-          </div>
+      <div class="duo" id="face-body">
+        <a class="duo-card" href="/category/prosopo/">
+          <Img img={I.face} sizes="(max-width: 768px) 100vw, 50vw" alt={I.face.alt} />
+          <span class="duo-cap">
+            <span class="eyebrow">Φροντίδα Προσώπου</span>
+            <span class="duo-title">Πρόσωπο</span>
+            <span class="duo-rule"></span>
+            <span class="duo-more">Δείτε</span>
+          </span>
         </a>
-        <a href="/category/soma/">
-          <Img class="pack" img={I.body} sizes="(max-width: 768px) 100vw, 50vw" alt={I.body.alt} />
-          <div>
-            <p class="eyebrow">Περιποίηση Σώματος</p>
-            <h3>Σώμα</h3>
-            <p>Πήγαινε πιο πέρα από την ομορφιά.</p>
-            <span class="text-link">Δείτε τα προϊόντα</span>
-          </div>
+        <a class="duo-card" href="/category/soma/">
+          <Img img={I.body} sizes="(max-width: 768px) 100vw, 50vw" alt={I.body.alt} />
+          <span class="duo-cap">
+            <span class="eyebrow">Περιποίηση Σώματος</span>
+            <span class="duo-title">Σώμα</span>
+            <span class="duo-rule"></span>
+            <span class="duo-more">Δείτε</span>
+          </span>
         </a>
       </div>
     </div>
@@ -157,7 +157,7 @@ const c = site.contact;
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="needs">
     <div class="wrap">
       <div class="sec-head">
         <div>
