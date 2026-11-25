@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SocialList from '../components/SocialList.astro';
 import site from '../data/site.json';
 const c = site.contact;
 ---
@@ -26,6 +27,10 @@ const c = site.contact;
         <a class="btn" href={`tel:${c.tel}`}>Κλήση</a>
         <a class="btn btn-line" href={`mailto:${c.email}`}>Email</a>
         <a class="btn btn-line" href="/where-to-buy/">Σημεία πώλησης</a>
+      </div>
+      <div style="margin-top:28px">
+        <p class="eyebrow">Ακολουθήστε μας</p>
+        <SocialList links={site.socials} />
       </div>
     </div>
     <div class="band" style="padding:28px;border-radius:10px">

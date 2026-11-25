@@ -95,10 +95,10 @@ body.lock { overflow: hidden; }
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
-.sec { padding: 56px 0; }
-.sec-sm { padding: 32px 0; }
+.sec { padding-block: 56px; }
+.sec-sm { padding-block: 32px; }
 @media (min-width: 1024px) {
-  .sec { padding: 96px 0; }
+  .sec { padding-block: 96px; }
 }
 .band { background: var(--bg-2); }
 .band-dark { background: var(--footer); color: var(--footer-text); }
@@ -711,7 +711,7 @@ img.pack { width: 100%; height: auto; display: block; }
 .values img { width: 48px; height: 48px; }
 .values h3 { margin: 0; font-size: 1rem; }
 
-.quote-band { text-align: center; padding: 80px var(--gutter); }
+.quote-band { text-align: center; padding-block: 80px; }
 .quote-band p {
   font-size: clamp(1.35rem, 3vw, 2.25rem);
   text-transform: uppercase;
@@ -796,18 +796,27 @@ img.pack { width: 100%; height: auto; display: block; }
 .lite-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: inherit; }
 .videos figcaption { margin-top: 10px; font-size: 0.875rem; }
 
-.socials { display: flex; flex-wrap: wrap; gap: 12px 28px; list-style: none; }
+.socials { display: flex; flex-wrap: wrap; gap: 14px 28px; list-style: none; margin: 0; padding: 0; }
 .socials a {
-  font-size: clamp(1.35rem, 3vw, 2.25rem);
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: inherit;
   text-decoration: none;
   background-image: linear-gradient(var(--gold), var(--gold));
   background-repeat: no-repeat;
-  background-size: 0 2px;
+  background-size: 0 1px;
   background-position: 0 100%;
-  transition: background-size .4s var(--ease);
+  transition: color .3s var(--ease), background-size .4s var(--ease);
 }
-.socials a:hover { background-size: 100% 2px; }
+.socials svg { width: 22px; height: 22px; flex: none; }
+.socials a:hover { color: var(--gold); background-size: 100% 1px; }
+.socials-lg { gap: 18px 36px; }
+.socials-lg a { font-size: clamp(1.35rem, 3vw, 2.25rem); text-transform: uppercase; }
+.socials-lg svg { width: 28px; height: 28px; }
+.fgrid .socials { flex-direction: column; align-items: flex-start; gap: 4px; }
+.fgrid .socials a:hover { color: var(--gold); }
 
 .finder { display: grid; gap: 20px; }
 @media (min-width: 768px) {

@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import ProductCard from '../components/ProductCard.astro';
 import PharmacyFinder from '../components/PharmacyFinder.astro';
+import SocialList from '../components/SocialList.astro';
 import site from '../data/site.json';
 import P from '../data/products.json';
 import { catBySlug } from '../data/nav.js';
@@ -150,8 +151,10 @@ const c = site.contact;
   </section>
 
   <section class="band-dark quote-band">
-    <p>AHAVA – Η φυσική ομορφιά στον άνθρωπο!</p>
-    <a class="btn btn-light" href="/about/">Μάθε για την AHAVA</a>
+    <div class="wrap">
+      <p>AHAVA – Η φυσική ομορφιά στον άνθρωπο!</p>
+      <a class="btn btn-light" href="/about/">Μάθε για την AHAVA</a>
+    </div>
   </section>
 
   <section class="sec">
@@ -332,11 +335,7 @@ const c = site.contact;
   <section class="sec">
     <div class="wrap">
       <p class="eyebrow">Ακολουθήστε μας</p>
-      <ul class="socials">
-        {site.socials.map((s) => (
-          <li><a href={s} rel="noopener noreferrer">{s.includes('facebook') ? 'Facebook' : s.includes('instagram') ? 'Instagram' : 'TikTok'}</a></li>
-        ))}
-      </ul>
+      <SocialList links={site.socials} large />
     </div>
   </section>
 

@@ -14,7 +14,7 @@ const products = [...P.products].sort((a, b) => a.name.localeCompare(b.name, 'el
   </div>
   <FacetNav />
   <ProductFilter />
-  <div class="wrap" style="padding:28px 0 72px">
+  <div class="wrap" style="padding-block:28px 72px">
     <ul class="grid">{products.map((p) => <ProductCard p={p} />)}</ul>
   </div>
 </Base>
